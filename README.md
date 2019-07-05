@@ -1,3 +1,3 @@
 # inex IPST-WiFi
 
-IPST-WiFi developer board
+IPST-WiFi Development Boards

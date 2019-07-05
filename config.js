@@ -1,12 +1,12 @@
 module.exports = {
-  name: "ttgo-t8-v1.3",
+  name: "ipst-wifi",
   platform: "arduino-esp32",
-  title: "TTGO T8 V1.3",
-  description: "TTGO T8 ESP32, 4 MB Flash, 4 MB PS-RAM, 3D Antenna, SD Card Slot, Li-Po Charger",
+  title: "IPST-WiFi",
+  description: "IPST-WiFi Development Boards",
   author: "Maker Asia",
   website: "",
   email: "makerasia@gmail.com",
-  git: "https://github.com/cmmakerclub/ttgo-t8-v1.3-board/",
-  image: "/static/display.jpg",
+  git: "https://github.com/MakerAsia/ipst-wifi-board/",
+  image: "/static/display.JPG",
   version: "1.0.0",
 };
