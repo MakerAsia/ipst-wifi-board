@@ -137,7 +137,7 @@ Blockly.Blocks['i2c128x64_display_display'] = {
 Blockly.Blocks['oled128x64_display_begin'] = {
 	init: function() {
 		this.appendDummyInput()
-			.appendField("OLED init")
+			.appendField("OLED begin")
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(230);
@@ -250,7 +250,7 @@ Blockly.Blocks['i2c128x64_display_print'] = {
   }
 };
 
-Blockly.Blocks['tft_display_draw_line'] = {
+Blockly.Blocks['oled128x64_display_draw_line'] = {
   init: function() {
     this.appendValueInput("x0")
         .setCheck("Number")
@@ -276,11 +276,11 @@ Blockly.Blocks['tft_display_draw_line'] = {
   }
 };
 
-Blockly.Blocks['tft_display_draw_rect'] = {
+Blockly.Blocks['oled128x64_display_draw_rect'] = {
   init: function() {
     this.appendValueInput("x")
         .setCheck("Number")
-        .appendField("draw rectangle at (X");
+        .appendField("OLED draw rectangle at (X");
     this.appendValueInput("y")
         .setCheck("Number")
         .appendField(", Y");
@@ -305,11 +305,11 @@ Blockly.Blocks['tft_display_draw_rect'] = {
   }
 };
 
-Blockly.Blocks['tft_display_draw_circle'] = {
+Blockly.Blocks['oled128x64_display_draw_circle'] = {
   init: function() {
     this.appendValueInput("x")
         .setCheck("Number")
-        .appendField("draw circle at (X");
+        .appendField("OLED draw circle at (X");
     this.appendValueInput("y")
         .setCheck("Number")
         .appendField(",Y");
@@ -361,7 +361,7 @@ Blockly.Blocks['oled128x64_display_draw_pixel'] = {
   init: function() {
     this.appendValueInput("x")
         .setCheck("Number")
-        .appendField("set pixel (X");
+        .appendField("OLED set pixel (X");
     this.appendValueInput("y")
         .setCheck("Number")
         .appendField(",Y");

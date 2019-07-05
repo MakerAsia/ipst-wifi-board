@@ -206,7 +206,7 @@ module.exports = {
                 // },
                 { 
                     xml : 
-                    `<block type="tft_display_draw_line">
+                    `<block type="oled128x64_display_draw_line">
                         <value name="x0">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -231,7 +231,7 @@ module.exports = {
                 },
                 { 
                     xml : 
-                    `<block type="tft_display_draw_rect">
+                    `<block type="oled128x64_display_draw_rect">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -256,7 +256,7 @@ module.exports = {
                 },
                 { 
                     xml : 
-                    `<block type="tft_display_draw_circle">
+                    `<block type="oled128x64_display_draw_circle">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -354,7 +354,69 @@ module.exports = {
                         </value>
                     </block>`
                 },
-                'neopixel_rgb_clear'
+                'neopixel_rgb_clear',
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_setBrightness">
+                        <value name="BRIGHT">
+                            <shadow type="math_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
+                'neopixel_rgb_fillLED',
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_setPixelColor">
+                        <value name="NUM">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_colorWipe">
+                        <value name="TIME">
+                            <shadow type="math_number">
+                                <field name="NUM">50</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_theaterChase">
+                        <value name="TIME">
+                            <shadow type="math_number">
+                                <field name="NUM">50</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
+                'neopixel_rgb_rainbow_begin',
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_rainbow">
+                        <value name="TIME">
+                            <shadow type="math_number">
+                                <field name="NUM">20</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
+                {
+                    xml : 
+                    `<block type="neopixel_rgb_rainbowCycle">
+                        <value name="TIME">
+                            <shadow type="math_number">
+                                <field name="NUM">20</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                }
             ]
         },
         {

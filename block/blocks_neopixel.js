@@ -22,7 +22,21 @@ Blockly.Blocks['neopixel_rgb_begin'] = {
 Blockly.Blocks['neopixel_rgb_clear'] = {
 	init: function() {
 		this.appendDummyInput()
-      .appendField("NeoPixel clear")
+      .appendField("NeoPixel clear");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_setBrightness'] = {
+	init: function() {
+		this.appendValueInput("BRIGHT")
+      .setCheck("Number")
+      .appendField("NeoPixel setBrightness");
+    this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(65);
@@ -38,15 +52,103 @@ Blockly.Blocks['neopixel_rgb_setPixelColor'] = {
       .appendField("NeoPixel setPixelColor")
     this.appendDummyInput()
       .appendField("color")
-      .appendField(new Blockly.FieldColour('#000000'), "COLOR")
+      .appendField(new Blockly.FieldColour('#FFFFFF'), "COLOR");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour(230);
+		this.setColour(65);
 		this.setTooltip("");
 		this.setHelpUrl("");
 	}
 };
 
+Blockly.Blocks['neopixel_rgb_fillLED'] = {
+	init: function() {
+    this.appendDummyInput()
+      .appendField("NeoPixel fill all LED color")
+      .appendField(new Blockly.FieldColour('#FFFFFF'), "COLOR");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_colorWipe'] = {
+	init: function() {
+    this.appendDummyInput()
+      .appendField("NeoPixel colorWipe")
+      .appendField(new Blockly.FieldColour('#FFFFFF'), "COLOR")
+    this.appendValueInput("TIME")
+      .setCheck("Number")
+      .appendField("Time(ms)")
+    this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_theaterChase'] = {
+	init: function() {
+    this.appendDummyInput()
+      .appendField("NeoPixel theaterChase")
+      .appendField(new Blockly.FieldColour('#FFFFFF'), "COLOR")
+    this.appendValueInput("TIME")
+      .setCheck("Number")
+      .appendField("Time(ms)")
+    this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_rainbow_begin'] = {
+	init: function() {
+		this.appendDummyInput()
+      .appendField("NeoPixel rainbow Begin");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_rainbow'] = {
+	init: function() {
+    this.appendValueInput("TIME")
+      .setCheck("Number")
+      .appendField("NeoPixel rainbow Time(ms)");
+    this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['neopixel_rgb_rainbowCycle'] = {
+	init: function() {
+    this.appendValueInput("TIME")
+      .setCheck("Number")
+      .appendField("NeoPixel rainbowCycle Time(ms)");
+    this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+// ######################################################################
 Blockly.Blocks['oled128x64_display_print'] = {
     init: function() {
         this.appendValueInput("TEXT")
@@ -101,7 +203,6 @@ Blockly.Blocks['oled128x64_display_println'] = {
   }
 };
 
-// ######################################################################
 
 Blockly.Blocks['i2c128x64_display_print'] = {
   init: function() {

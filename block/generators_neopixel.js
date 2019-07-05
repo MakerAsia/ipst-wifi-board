@@ -7,7 +7,7 @@ Blockly.JavaScript['neopixel_rgb_begin'] = function(block) {
 
 	var code = 
   `
-  #EXTINC##include "Adafruit_NeoPixel.h" #END
+  #EXTINC#include "Adafruit_NeoPixel.h" #END
   #VARIABLE#define PIN            ${value_pin} #END
   #VARIABLE#define NUMPIXELS      ${value_num} #END
 
@@ -28,11 +28,24 @@ Blockly.JavaScript['neopixel_rgb_clear'] = function(block) {
 	return code;
 };
 
+Blockly.JavaScript['neopixel_rgb_setBrightness'] = function(block) {
+  var value_bright = Blockly.JavaScript.valueToCode(block, 'BRIGHT', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 
+  `
+  pixels.setBrightness(${value_bright});
+  pixels.show();
+  `;
+	return code;
+};
+
 Blockly.JavaScript['neopixel_rgb_setPixelColor'] = function(block) {
   var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_r = Blockly.JavaScript.valueToCode(block, 'R', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_g = Blockly.JavaScript.valueToCode(block, 'G', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_b = Blockly.JavaScript.valueToCode(block, 'B', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_color = block.getFieldValue('COLOR');
+  var color = hexToRgbA(value_color);
+  var colorArr = color.split(',');
+  var value_r = colorArr[0];
+  var value_g = colorArr[1];
+  var value_b = colorArr[2];
 
   var code = 
   `
@@ -42,29 +55,142 @@ Blockly.JavaScript['neopixel_rgb_setPixelColor'] = function(block) {
   return code;
 };
 
-lockly.JavaScript['basic_TFT_fillScreen'] = function(block) {
-	let color = block.getFieldValue('COLOR');
-	color = color.replace("#", "0x");
-	let sourceColor = parseInt(color, 16);
-	let red = (sourceColor & 0x00FF0000) >> 16;
-	let green = (sourceColor & 0x0000FF00) >> 8;
-	let blue =  sourceColor & 0x000000FF;
-	let out = (red >> 3 << 11) + (green >> 2 << 5) + (blue >> 3);
-	out = out.toString(16);
-	var code = 'tft.fillScreen(0x'+out+');\n';
+Blockly.JavaScript['neopixel_rgb_fillLED'] = function(block) {
+  var value_color = block.getFieldValue('COLOR');
+  var color = hexToRgbA(value_color);
+  var colorArr = color.split(',');
+   var value_r = colorArr[0];
+   var value_g = colorArr[1];
+   var value_b = colorArr[2];
+
+  var code = 
+  `
+  for (uint16_t i = 0; i < pixels.numPixels(); i++) {
+    pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+  }
+  pixels.show();
+  `;
+  return code;
+};
+
+Blockly.JavaScript['neopixel_rgb_colorWipe'] = function(block) {
+  var value_time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_color = block.getFieldValue('COLOR');
+  var color = hexToRgbA(value_color);
+  var colorArr = color.split(',');
+   var value_r = colorArr[0];
+   var value_g = colorArr[1];
+   var value_b = colorArr[2];
+
+  var code = 
+  `
+  for (uint16_t i = 0; i < pixels.numPixels(); i++) {
+    pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+    pixels.show();
+    delay(${value_time});
+  }
+  `;
+  return code;
+};
+
+Blockly.JavaScript['neopixel_rgb_theaterChase'] = function(block) {
+  var value_time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_color = block.getFieldValue('COLOR');
+  var color = hexToRgbA(value_color);
+  var colorArr = color.split(',');
+   var value_r = colorArr[0];
+   var value_g = colorArr[1];
+   var value_b = colorArr[2];
+
+  var code = 
+  `
+  for (int j = 0; j < 10; j++) { 
+    for (int q = 0; q < 3; q++) {
+      for (uint16_t i = 0; i < pixels.numPixels(); i = i + 3) {
+        pixels.setPixelColor(i + q, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+      }
+      pixels.show();
+      delay(${value_time});
+      for (uint16_t i = 0; i < pixels.numPixels(); i = i + 3) {
+        pixels.setPixelColor(i + q, 0);      
+      }
+      pixels.show();
+    }
+  }
+  `;
+  return code;
+};
+
+Blockly.JavaScript['neopixel_rgb_rainbow_begin'] = function(block) {
+  var code = 
+  `
+  #VARIABLE  uint32_t Wheel(byte WheelPos) {WheelPos = 255 - WheelPos; #END
+  #VARIABLE  if (WheelPos < 85) {return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);} #END
+  #VARIABLE  if (WheelPos < 170) {WheelPos -= 85;return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);} #END
+  #VARIABLE  WheelPos -= 170; return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);} #END
+  `;
 	return code;
 };
 
-function rgbto16bit(colorIN) {
-	let color = colorIN.replace("#", "0x");
-	let sourceColor = parseInt(color, 16);
-	let red = (sourceColor & 0x00FF0000) >> 16;
-	let green = (sourceColor & 0x0000FF00) >> 8;
-	let blue =  sourceColor & 0x000000FF;
-	let out = (red >> 3 << 11) + (green >> 2 << 5) + (blue >> 3);
-	out = out.toString(16)
-	return out;   // The function returns the product of p1 and p2
+Blockly.JavaScript['neopixel_rgb_rainbow'] = function(block) {
+  var value_time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 
+  `
+  uint16_t i, j;
+  for (j = 0; j < 256; j++) {
+    for (i = 0; i < pixels.numPixels(); i++) {
+      pixels.setPixelColor(i, Wheel((i + j) & 255));
+    }
+    pixels.show();
+    delay(${value_time});
   }
+  `;
+  return code;
+};
+
+Blockly.JavaScript['neopixel_rgb_rainbowCycle'] = function(block) {
+  var value_time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+
+  var code = 
+  `
+  uint16_t k, m;
+  for (m = 0; m < 256 * 5; m++) { // 5 cycles of all colors on wheel
+    for (k = 0; k < pixels.numPixels(); k++) {
+      pixels.setPixelColor(k, Wheel(((k * 256 / pixels.numPixels()) + m) & 255));
+    }
+    pixels.show();
+    delay(${value_time});
+  }
+  `;
+  return code;
+};
+
+function hexToRgbA(hex){
+  var c;
+  var names;
+
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+      c= hex.substring(1).split('');
+      if(c.length== 3){
+          c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c= '0x'+c.join('');
+      return [(c>>16)&255, (c>>8)&255, c&255].join(',');
+  }
+}
+// ######################################################################
+Blockly.JavaScript['basic_TFT_fillScreen'] = function(block) {
+    let color = block.getFieldValue('COLOR');
+    color = color.replace("#", "0x");
+    let sourceColor = parseInt(color, 16);
+    let red = (sourceColor & 0x00FF0000) >> 16;
+    let green = (sourceColor & 0x0000FF00) >> 8;
+    let blue =  sourceColor & 0x000000FF;
+    let out = (red >> 3 << 11) + (green >> 2 << 5) + (blue >> 3);
+    out = out.toString(16);
+    var code = 'tft.fillScreen(0x'+out+');\n';
+    return code;
+  };
 
 Blockly.JavaScript['oled128x64_display_print'] = function(block) {
   var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
