@@ -420,6 +420,85 @@ module.exports = {
             ]
         },
         {
+            name : 'Buzzer',
+            color : '230',
+            icon : '/static/icons/icons8_musical_notes_96px.png',
+            blocks : [
+                // 'speaker_tts_word',
+                // {
+                //     xml : `<block type="speaker_tts_speak">
+                //                 <value name="words">                    
+                //                     <block type="speaker_tts_word">
+                //                         <field name="words">HELLO</field>
+                //                     </block>
+                //                 </value>
+                //             </block>`
+                // },
+                // {
+                //     xml : `<block type="speaker_tts_speak_number">
+                //                 <value name="number">
+                //                     <shadow type="math_number">
+                //                         <field name="NUM">1234</field>
+                //                     </shadow>
+                //                 </value>
+                //             </block>`
+                // },
+                // {
+                //     xml : `<block type="variables_set">
+                //                 <field name="VAR">music1</field>
+                //                 <value name="VALUE">
+                //                     <block type="speaker_music_note">
+                //                         <field name="notes">C3,D3,E3</field>
+                //                     </block>
+                //                 </value>
+                //             </block>`
+                // },
+                // {
+                //     xml : 
+                //     `<block type="speaker_play_note">
+                //         <value name="note">                    
+                //             <block type="variables_get">
+                //                 <field name="VAR">music1</field>
+                //             </block>
+                //         </value>
+                //     </block>`
+                // },
+                // 'speaker_music_note',
+                // {
+                //     xml : 
+                //     `<block type="speaker_play_note">
+                //         <value name="note">                    
+                //             <block type="speaker_music_note">
+                //                 <field name="notes">C4,B4,E4</field>
+                //             </block>
+                //         </value>
+                //     </block>`
+                // },
+                // 'speaker_set_volume',
+                // 'speaker_get_volume'
+                'music_begin',
+                'music_buzzer_note',
+                // 'music_buzzer_frequency'
+                {
+                    xml : 
+                    `<block type="music_buzzer_frequency">
+                        <value name="FREQUENCY">    
+                            <shadow type="math_number">
+                                <field name="NUM">262</field>
+                            </shadow>
+                        </value>
+                        <value name="DURATION">                    
+                            <shadow type="math_number">
+                                <field name="NUM">500</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                }
+                // 'music_set_volume'
+                // 'music_get_volume'
+            ]
+        },
+        {
             name : 'Time',
             color : '230',
             icon : '/static/icons/icons8_Story_Time_96px.png',
