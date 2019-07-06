@@ -10,8 +10,9 @@ var pluginDir = `${boardDirectory}/plugin`;
 var boardIncludeDir = `${boardDirectory}/include`;
 var platfromIncludeDir = `${boardDirectory}/include`;
 
-var context = JSON.parse(fs.readFileSync(boardDirectory + "/context.json",
-  "utf8"));
+var context = JSON.parse(
+  fs.readFileSync(boardDirectory + "/context.json", "utf8")
+);
 var config = require("./config");
 var platformDir = `${engine.util.platformDir}/${config.platform}`;
 var platformCompiler = engine.util.requireFunc(`${platformDir}/compiler`);
@@ -25,10 +26,18 @@ function compile(rawCode, boardName, config, cb) {
       var codegen = engine.util.requireFunc(`${platformDir}/codegen`);
     }
     var app_dir = `${boardDirectory}/build/${boardName}`;
-    let inc_src = engine.util.walk(boardIncludeDir).filter(
-      file => path.extname(file) == ".cpp" || path.extname(file) == ".c");
-    inc_src = inc_src.concat(engine.util.walk(platfromIncludeDir).filter(
-      file => path.extname(file) == ".cpp" || path.extname(file) == ".c"));
+    let inc_src = engine.util
+      .walk(boardIncludeDir)
+      .filter(
+        file => path.extname(file) == ".cpp" || path.extname(file) == ".c"
+      );
+    inc_src = inc_src.concat(
+      engine.util
+        .walk(platfromIncludeDir)
+        .filter(
+          file => path.extname(file) == ".cpp" || path.extname(file) == ".c"
+        )
+    );
     let inc_switch = [];
     //--- step 1 load template and create full code ---//
     if (config.isSourceCode) {
@@ -51,12 +60,14 @@ function compile(rawCode, boardName, config, cb) {
       cflags = context.cflags.map(f => f.replace(/\{board\}/g, boardDirectory));
     }
     if (context.ldflags) {
-      ldflags = context.ldflags.map(
-        f => f.replace(/\{board\}/g, boardDirectory));
+      ldflags = context.ldflags.map(f =>
+        f.replace(/\{board\}/g, boardDirectory)
+      );
     }
     if (context.libflags) {
-      libflags = context.libflags.map(
-        f => f.replace(/\{board\}/g, boardDirectory));
+      libflags = context.libflags.map(f =>
+        f.replace(/\{board\}/g, boardDirectory)
+      );
     }
     //--- step 4 compile
     var contextBoard = {
@@ -69,33 +80,39 @@ function compile(rawCode, boardName, config, cb) {
     sourceFiles.push(`${app_dir}/user_app.cpp`);
     platformCompiler.setConfig(contextBoard);
     //(sources, boardCppOptions, boardcflags, plugins_includes_switch -Ixxx/xxx)
-    engine.util.promiseTimeout(1000).then(() => {
-      return platformCompiler.compileFiles(sourceFiles,
-        [],
-        cflags,
-        includeSwitch);
-    }).then(() => {
-      return platformCompiler.archiveProgram(sourceFiles);
-    }).then(() => {
-      return platformCompiler.linkObject(ldflags, libflags);
-    }).then(() => {
-      return platformCompiler.createBin();
-    }).then(() => {
-      resolve();
-    }).catch(msg => {
-      console.log("error msg : " + msg);
-      reject(msg);
-    });
-
+    engine.util
+      .promiseTimeout(1000)
+      .then(() => {
+        return platformCompiler.compileFiles(
+          sourceFiles,
+          [],
+          cflags,
+          includeSwitch
+        );
+      })
+      .then(() => {
+        return platformCompiler.archiveProgram(sourceFiles);
+      })
+      .then(() => {
+        return platformCompiler.linkObject(ldflags, libflags);
+      })
+      .then(() => {
+        return platformCompiler.createBin();
+      })
+      .then(() => {
+        resolve();
+      })
+      .catch(msg => {
+        console.log("error msg : " + msg);
+        reject(msg);
+      });
   });
 }
 
 var exp = {};
 Object.assign(exp, platformCompiler);
-Object.assign(exp,
-  {
-    compile
-  }
-);
+Object.assign(exp, {
+  compile
+});
 //console.log(exp);
 module.exports = exp;
