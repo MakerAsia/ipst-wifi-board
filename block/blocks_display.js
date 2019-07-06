@@ -132,8 +132,6 @@ Blockly.Blocks['i2c128x64_display_display'] = {
  this.setHelpUrl("");
   }
 };
-
-// ######################################################################
 Blockly.Blocks['oled128x64_display_begin'] = {
 	init: function() {
 		this.appendDummyInput()
@@ -303,9 +301,6 @@ Blockly.Blocks['oled128x64_display_draw_rect'] = {
         .setCheck("Number")
         .appendField(" height");
     this.appendDummyInput()
-        .appendField("color")
-        .appendField(new Blockly.FieldColour('#000000'), "COLOR")
-    this.appendDummyInput()
         .appendField(" fill ")
         .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");      
     this.setInputsInline(true);
@@ -328,9 +323,6 @@ Blockly.Blocks['oled128x64_display_draw_circle'] = {
     this.appendValueInput("r")
         .setCheck("Number")
         .appendField(")  radius");
-    this.appendDummyInput()
-        .appendField("color")
-        .appendField(new Blockly.FieldColour('#000000'), "COLOR")
     this.appendDummyInput()
         .appendField(" fill")
         .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
@@ -402,26 +394,26 @@ Blockly.Blocks['oled128x64_display_draw_pixel'] = {
 //   }
 // };
 
-Blockly.Blocks['oled128x64_display_width'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("OLED get screen width");
-    this.setOutput(true, "Number");
-    this.setColour(230);
- this.setTooltip("get screen size width in pixel");
- this.setHelpUrl("");
-  }
-};
+// Blockly.Blocks['oled128x64_display_width'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("OLED get screen width");
+//     this.setOutput(true, "Number");
+//     this.setColour(230);
+//  this.setTooltip("get screen size width in pixel");
+//  this.setHelpUrl("");
+//   }
+// };
 
-Blockly.Blocks['oled128x64_display_height'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("OELD get screen height");
-    this.setOutput(true, "Number");
-    this.setColour(230);
- this.setTooltip("get display screen height in pixel");
- this.setHelpUrl("");
-  }
-};
+// Blockly.Blocks['oled128x64_display_height'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("OELD get screen height");
+//     this.setOutput(true, "Number");
+//     this.setColour(230);
+//  this.setTooltip("get display screen height in pixel");
+//  this.setHelpUrl("");
+//   }
+// };
 
 }

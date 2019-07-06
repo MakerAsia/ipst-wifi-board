@@ -31,6 +31,18 @@ Blockly.Blocks['neopixel_rgb_clear'] = {
 	}
 };
 
+Blockly.Blocks['neopixel_rgb_show'] = {
+	init: function() {
+		this.appendDummyInput()
+      .appendField("NeoPixel Show");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(65);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
 Blockly.Blocks['neopixel_rgb_setBrightness'] = {
 	init: function() {
 		this.appendValueInput("BRIGHT")

@@ -262,14 +262,14 @@ Blockly.JavaScript['oled128x64_display_draw_pixel'] = function(block) {
 //   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 // };
 
-Blockly.JavaScript['oled128x64_display_width'] = function(block) {  
-  var code = 'display.getWidth()';  
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
+// Blockly.JavaScript['oled128x64_display_width'] = function(block) {  
+//   var code = 'display.getWidth()';  
+//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+// };
 
-Blockly.JavaScript['oled128x64_display_height'] = function(block) {  
-  var code = 'display.getHeight()';  
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
+// Blockly.JavaScript['oled128x64_display_height'] = function(block) {  
+//   var code = 'display.getHeight()';  
+//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+// };
 
 }

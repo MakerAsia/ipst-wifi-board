@@ -21,9 +21,18 @@ Blockly.JavaScript['neopixel_rgb_clear'] = function(block) {
   var code = 
   `
   for(int clearPixel = 0; clearPixel < pixels.numPixels(); clearPixel++) {
-    pixels.setPixelColor(clearPixel, pixels.Color(0,0,0));
-  	pixels.show();
+    pixels.setPixelColor(clearPixel, pixels.Color(0,0,0));	
+    delay(50);
+    pixels.show();
   }
+  `;
+	return code;
+};
+
+Blockly.JavaScript['neopixel_rgb_show'] = function(block) {
+  var code = 
+  `
+  pixels.show();
   `;
 	return code;
 };
@@ -50,6 +59,7 @@ Blockly.JavaScript['neopixel_rgb_setPixelColor'] = function(block) {
   var code = 
   `
   pixels.setPixelColor(${value_num}, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+  delay(50);
   pixels.show();
   `;
   return code;
@@ -67,8 +77,9 @@ Blockly.JavaScript['neopixel_rgb_fillLED'] = function(block) {
   `
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+    delay(50);
+    pixels.show();
   }
-  pixels.show();
   `;
   return code;
 };
