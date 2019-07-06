@@ -1,11 +1,11 @@
 const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
+const { hexToRgbA } = blockly_utils;
 
 module.exports = function(Blockly) {
   "use strict";
   const ORDER_ATOMIC = Blockly.JavaScript.ORDER_ATOMIC;
   const valueToCode = (a, b) => Blockly.JavaScript.valueToCode(a, b);
 
-  console.log(`blockly_utils`, blockly_utils.hello());
   Blockly.JavaScript["neopixel_rgb_begin"] = function(block) {
     let [value_pin, value_num] = [
       valueToCode(block, "PIN", ORDER_ATOMIC),
@@ -169,21 +169,6 @@ module.exports = function(Blockly) {
   `;
     return code;
   };
-
-  function hexToRgbA(hex) {
-    var c;
-    var names;
-
-    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-      c = hex.substring(1)
-        .split("");
-      if (c.length == 3) {
-        c = [c[0], c[0], c[1], c[1], c[2], c[2]];
-      }
-      c = "0x" + c.join("");
-      return [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",");
-    }
-  }
 
 // ######################################################################
 };
