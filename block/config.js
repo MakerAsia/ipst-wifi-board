@@ -184,6 +184,7 @@ module.exports = {
                         </value>
                     </block>`
                 },
+                'oled128x64_display_display',
                 // { 
                 //     xml : 
                 //     `<block type="i2c128x64_display_print">

@@ -135,7 +135,6 @@ Blockly.JavaScript['oled128x64_display_print'] = function(block) {
   display.setTextColor(${checkbox_color});
   display.setCursor(${value_x}, ${value_y});
   display.println(String(${value_text}));
-  display.display();
   `;
   return code;
 };
@@ -150,9 +149,16 @@ Blockly.JavaScript['oled128x64_display_println'] = function(block) {
   display.setTextSize(${value_textSize});
   display.setTextColor(${checkbox_color});
   display.println(String(${value_text}));
-  display.display();
   `;
   return code;
+};
+
+Blockly.JavaScript['oled128x64_display_display'] = function(block) {
+  var code = 
+  `
+  display.display();
+  `;
+	return code;
 };
 // ######################################################################
 

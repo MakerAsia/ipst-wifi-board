@@ -225,6 +225,18 @@ Blockly.Blocks['oled128x64_display_println'] = {
   }
 };
 
+Blockly.Blocks['oled128x64_display_display'] = {
+	init: function() {
+		this.appendDummyInput()
+			.appendField("OLED display")
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(230);
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
 // ######################################################################
 
 Blockly.Blocks['i2c128x64_display_print'] = {
