@@ -41,8 +41,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_create_image"] = {
     init: function() {
       this.appendDummyInput().appendField("create image from PNG file");
-      this.appendDummyInput().
-      appendField(new Blockly.FieldImage(
+      this.appendDummyInput().appendField(new Blockly.FieldImage(
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABACAIAAABdtOgoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ/SURBVHhe7ZbbdQIxDES3LgraeqiGZiiG2JLWHhmbx08Gkrk/kWU9GR/IdhNUJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACZFwW47Nu2nc7XOP4ZbK9tv8SRgASQAP+bhQDX86k+jYo9jxDgbA+mAG/GH5GDEs393dtLQLNRZL9qTnwHs/oeHpUh18xjfHzvkBAxF/NUirf16DnQts+KsxTiwos7PXZgKkDesxrRweZw20dCGxZe+aHw9bzH33obC9p92A4WhfRF/VTszj+UrkBCxKT4sVfxm+s+8a492pO9GjMB+p6N5OqHHOk96/Ghv18U0pzTSWfdVvVTte5GMwMJKSYVyt2CPAymQbW2iUW3EzIRYMg10gztkGaGi5X/MB3rAOfGMGiqalWW9dPoEJX8CFykoikBxh/m7cUH65W9nKUA0TDAGeCQ3DD1yn/QW+TIORaznU5tu2X91Kk3mUwQwAWEDwmtG3r7CO4NjqFe2cuYfQWlUeA3YFIc/fPx0F+s8PV7s45VF7QVI/tJX7fd9CAMScCFm5OavZl5PcKrD04EJnnI9Ef4GKAC/Y4u6dAjC9Bv7gdvj/VZG5OhIw3XXPVtxeIfGsvx4GVhu3AzWqQE2LePuu/FHJ1Ga/N8r8JCgE8DPoNPI422VHrJdwjgb+mdvX6N/JG/P+g3COA7fubnX8lfNW+O+SVfQX8XCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACV2+0HImEfdtax+UEAAAAASUVORK5CYII=",
           128,
           64,
@@ -93,9 +92,9 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["i2c128x64_display_image"] = {
     init: function() {
-      this.appendValueInput("img").
-      setCheck("std::vector<uint8_t>").
-      appendField("draw image");
+      this.appendValueInput("img")
+      .setCheck("std::vector<uint8_t>")
+      .appendField("draw image");
       this.appendValueInput("x").setCheck("Number").appendField(" at (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
       this.appendValueInput("width").setCheck("Number").appendField(") width");
@@ -154,9 +153,9 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_invert"] = {
     init: function() {
-      this.appendDummyInput().
-      appendField("OLED invert Display").
-      appendField(new Blockly.FieldCheckbox("FALSE"), "inv");
+      this.appendDummyInput()
+      .appendField("OLED invert Display")
+      .appendField(new Blockly.FieldCheckbox("FALSE"), "inv");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(230);
@@ -167,21 +166,21 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_print"] = {
     init: function() {
-      this.appendValueInput("TEXT").
-      setCheck("String").
-      appendField("OLED print");
+      this.appendValueInput("TEXT")
+      .setCheck("String")
+      .appendField("OLED print");
       this.appendValueInput("X").setCheck("Number").appendField("at (X");
       this.appendValueInput("Y").setCheck("Number").appendField(", Y");
-      this.appendDummyInput().
-      appendField(") font").
-      appendField(new Blockly.FieldDropdown([
+      this.appendDummyInput()
+      .appendField(") font")
+      .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
             ["3X-scale", "3"]]),
           "textSize");
-      this.appendDummyInput().
-      appendField("white color").
-      appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+      this.appendDummyInput()
+      .appendField("white color")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -193,19 +192,19 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_println"] = {
     init: function() {
-      this.appendValueInput("TEXT").
-      setCheck("String").
-      appendField("OLED print new line");
-      this.appendDummyInput().
-      appendField("font").
-      appendField(new Blockly.FieldDropdown([
+      this.appendValueInput("TEXT")
+      .setCheck("String")
+      .appendField("OLED print new line");
+      this.appendDummyInput()
+      .appendField("font")
+      .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
             ["3X-scale", "3"]]),
           "textSize");
-      this.appendDummyInput().
-      appendField("white color").
-      appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+      this.appendDummyInput()
+      .appendField("white color")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -253,15 +252,15 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_draw_line"] = {
     init: function() {
-      this.appendValueInput("x0").
-      setCheck("Number").
-      appendField("OLED draw line from (X");
+      this.appendValueInput("x0")
+      .setCheck("Number")
+      .appendField("OLED draw line from (X");
       this.appendValueInput("y0").setCheck("Number").appendField(",Y");
       this.appendValueInput("x1").setCheck("Number").appendField(")  to  (X");
       this.appendValueInput("y1").setCheck("Number").appendField(",Y");
-      this.appendDummyInput().
-      appendField(")  white color").
-      appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+      this.appendDummyInput()
+      .appendField(")  white color")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -273,15 +272,15 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_draw_rect"] = {
     init: function() {
-      this.appendValueInput("x").
-      setCheck("Number").
-      appendField("OLED draw rectangle at (X");
+      this.appendValueInput("x")
+      .setCheck("Number")
+      .appendField("OLED draw rectangle at (X");
       this.appendValueInput("y").setCheck("Number").appendField(", Y");
       this.appendValueInput("width").setCheck("Number").appendField(")  width");
       this.appendValueInput("height").setCheck("Number").appendField(" height");
-      this.appendDummyInput().
-      appendField(" fill ").
-      appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
+      this.appendDummyInput()
+      .appendField(" fill ")
+      .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -293,14 +292,14 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_draw_circle"] = {
     init: function() {
-      this.appendValueInput("x").
-      setCheck("Number").
-      appendField("OLED draw circle at (X");
+      this.appendValueInput("x")
+      .setCheck("Number")
+      .appendField("OLED draw circle at (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
       this.appendValueInput("r").setCheck("Number").appendField(")  radius");
-      this.appendDummyInput().
-      appendField(" fill").
-      appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
+      this.appendDummyInput()
+      .appendField(" fill")
+      .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -338,13 +337,13 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["oled128x64_display_draw_pixel"] = {
     init: function() {
-      this.appendValueInput("x").
-      setCheck("Number").
-      appendField("OLED set pixel (X");
+      this.appendValueInput("x")
+      .setCheck("Number")
+      .appendField("OLED set pixel (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
-      this.appendDummyInput().
-      appendField(")  white color").
-      appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+      this.appendDummyInput()
+      .appendField(")  white color")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
