@@ -22,7 +22,7 @@ Blockly.Blocks['neopixel_rgb_begin'] = {
 Blockly.Blocks['neopixel_rgb_clear'] = {
 	init: function() {
 		this.appendDummyInput()
-      .appendField("NeoPixel clear");
+      .appendField("NeoPixel Clear");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(65);
@@ -35,7 +35,7 @@ Blockly.Blocks['neopixel_rgb_setBrightness'] = {
 	init: function() {
 		this.appendValueInput("BRIGHT")
       .setCheck("Number")
-      .appendField("NeoPixel setBrightness");
+      .appendField("NeoPixel setBrightness (0-255)");
     this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
@@ -49,9 +49,9 @@ Blockly.Blocks['neopixel_rgb_setPixelColor'] = {
 	init: function() {
     this.appendValueInput("NUM")
       .setCheck("Number")
-      .appendField("NeoPixel setPixelColor")
+      .appendField("NeoPixel set Pixel")
     this.appendDummyInput()
-      .appendField("color")
+      .appendField("Color")
       .appendField(new Blockly.FieldColour('#FFFFFF'), "COLOR");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
