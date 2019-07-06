@@ -1,3 +1,16 @@
+//var hexToRgbA = function(hex) {
+//  var c;
+//  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+//    c = hex.substring(1).split("");
+//    if (c.length == 3) {
+//      c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+//    }
+//    c = "0x" + c.join("");
+//    return [(c >> 16) & 255, (c >> 8) & 255, c & 255];
+//  } else {
+//    console.error(`${hex} is invalid.`);
+//  }
+//};
 const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
 const { hexToRgbA } = blockly_utils;
 
@@ -58,7 +71,11 @@ module.exports = function(Blockly) {
     var value_num = valueToCode(block, "NUM", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    let [value_r, value_g, value_b] = color.split(",");
+    if (!color) {
+      console.log(`skipped`);
+      return;
+    }
+    let [value_r, value_g, value_b] = color;
 
     var code =
       `
@@ -72,7 +89,12 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["neopixel_rgb_fillLED"] = function(block) {
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    let [value_r, value_g, value_b] = color.split(",");
+    if (!color) {
+      console.log(`skipped`);
+      return;
+    }
+    console.log(`color=`, color);
+    let [value_r, value_g, value_b] = color;
 
     var code =
       `
@@ -106,7 +128,7 @@ module.exports = function(Blockly) {
     var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    let [value_r, value_g, value_b] = color.split(",");
+    let [value_r, value_g, value_b] = color;
 
     var code =
       `
