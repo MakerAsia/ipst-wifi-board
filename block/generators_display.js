@@ -54,15 +54,15 @@ Blockly.JavaScript['i2c128x64_display_image'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['i2c128x64_display_clear'] = function(block) {  
-  var code = 'display.clear();\n';
-  return code;
-};
+// Blockly.JavaScript['i2c128x64_display_clear'] = function(block) {  
+//   var code = 'display.clear();\n';
+//   return code;
+// };
 
-Blockly.JavaScript['i2c128x64_display_display'] = function(block) {  
-  var code = 'display.display();\n';
-  return code;
-};
+// Blockly.JavaScript['i2c128x64_display_display'] = function(block) {  
+//   var code = 'display.display();\n';
+//   return code;
+// };
 
 // ######################################################################
 Blockly.JavaScript['oled128x64_display_begin'] = function(block) {
@@ -128,7 +128,7 @@ Blockly.JavaScript['oled128x64_display_print'] = function(block) {
   var value_y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
   var value_textSize = block.getFieldValue('textSize'); 
   var checkbox_color = (block.getFieldValue('color') == 'TRUE')?'WHITE':'INVERSE'; 
-
+  console.log("print");
   var code = 
   `
   display.setTextSize(${value_textSize});
@@ -162,20 +162,20 @@ Blockly.JavaScript['oled128x64_display_display'] = function(block) {
 };
 // ######################################################################
 
-Blockly.JavaScript['i2c128x64_display_print'] = function(block) {
-  var value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
-  var dropdown_font = block.getFieldValue('font');  
-  var code = 
-  `
-  display.setFont(${dropdown_font});
-  display.drawString(${value_x},${value_y},String(${value_text}));
-  `;
-  return code;
-};
+// Blockly.JavaScript['i2c128x64_display_print'] = function(block) {
+//   var value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
+//   var dropdown_font = block.getFieldValue('font');  
+//   var code = 
+//   `
+//   display.setFont(${dropdown_font});
+//   display.drawString(${value_x},${value_y},String(${value_text}));
+//   `;
+//   return code;
+// };
 
-Blockly.JavaScript['tft_display_draw_line'] = function(block) {
+Blockly.JavaScript['oled128x64_display_draw_line'] = function(block) {
   var value_x0 = Blockly.JavaScript.valueToCode(block, 'x0', Blockly.JavaScript.ORDER_ATOMIC);
   var value_y0 = Blockly.JavaScript.valueToCode(block, 'y0', Blockly.JavaScript.ORDER_ATOMIC);
   var value_x1 = Blockly.JavaScript.valueToCode(block, 'x1', Blockly.JavaScript.ORDER_ATOMIC);
@@ -190,7 +190,7 @@ Blockly.JavaScript['tft_display_draw_line'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['tft_display_draw_rect'] = function(block) {
+Blockly.JavaScript['oled128x64_display_draw_rect'] = function(block) {
   var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
   var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
   var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
@@ -213,7 +213,7 @@ Blockly.JavaScript['tft_display_draw_rect'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['tft_display_draw_circle'] = function(block) {
+Blockly.JavaScript['oled128x64_display_draw_circle'] = function(block) {
   var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
   var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
   var value_r = Blockly.JavaScript.valueToCode(block, 'r', Blockly.JavaScript.ORDER_ATOMIC);
@@ -235,15 +235,15 @@ Blockly.JavaScript['tft_display_draw_circle'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['i2c128x64_display_draw_progress_bar'] = function(block) {
-  var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_height = Blockly.JavaScript.valueToCode(block, 'height', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_progress = Blockly.JavaScript.valueToCode(block, 'progress', Blockly.JavaScript.ORDER_ATOMIC);  
-  var code = `display.drawProgressBar(${value_x}, ${value_y}, ${value_width}, ${value_height}, ${value_progress});\n`;
-  return code;
-};
+// Blockly.JavaScript['i2c128x64_display_draw_progress_bar'] = function(block) {
+//   var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_height = Blockly.JavaScript.valueToCode(block, 'height', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_progress = Blockly.JavaScript.valueToCode(block, 'progress', Blockly.JavaScript.ORDER_ATOMIC);  
+//   var code = `display.drawProgressBar(${value_x}, ${value_y}, ${value_width}, ${value_height}, ${value_progress});\n`;
+//   return code;
+// };
 
 Blockly.JavaScript['oled128x64_display_draw_pixel'] = function(block) {
   var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
@@ -256,18 +256,18 @@ Blockly.JavaScript['oled128x64_display_draw_pixel'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['i2c128x64_display_string_width'] = function(block) {
-  var value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);  
-  var code = `display.getStringWidth(${value_text},${value_text.length})`;  
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
+// Blockly.JavaScript['i2c128x64_display_string_width'] = function(block) {
+//   var value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);  
+//   var code = `display.getStringWidth(${value_text},${value_text.length})`;  
+//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+// };
 
-Blockly.JavaScript['i2c128x64_display_width'] = function(block) {  
+Blockly.JavaScript['oled128x64_display_width'] = function(block) {  
   var code = 'display.getWidth()';  
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.JavaScript['i2c128x64_display_height'] = function(block) {  
+Blockly.JavaScript['oled128x64_display_height'] = function(block) {  
   var code = 'display.getHeight()';  
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

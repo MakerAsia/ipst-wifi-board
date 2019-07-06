@@ -149,8 +149,8 @@ module.exports = {
                 //         </value>
                 //     </block>`
                 // },
-                //'i2c128x64_display_clear',
-                //'i2c128x64_display_display',
+                // 'i2c128x64_display_clear',
+                // 'i2c128x64_display_display',
                 'oled128x64_display_begin',
                 'oled128x64_display_clear',
                 'oled128x64_display_invert',
@@ -330,8 +330,8 @@ module.exports = {
                 //         </value>
                 //     </block>`
                 // },
-                // 'i2c128x64_display_width',
-                // 'i2c128x64_display_height',
+                'i2c128x64_display_width',
+                'i2c128x64_display_height',
                 'basic_string'
             ]
         },        
