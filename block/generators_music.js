@@ -9,13 +9,14 @@ const notes = [
 
 module.exports = function(Blockly) {
   "use strict";
+  const ORDER_ATOMIC = Blockly.JavaScript.ORDER_ATOMIC;
+  const ORDER_NONE = Blockly.JavaScript.ORDER_NONE;
+  const valueToCode = (a, b) => Blockly.JavaScript.valueToCode(a, b);
 
   Blockly.JavaScript["speaker_play_note"] = function(block) {
     let number_tempo = block.getFieldValue("tempo");
     let dropdown_instrument = block.getFieldValue("instrument");
-    let value_note = Blockly.JavaScript.valueToCode(block,
-      "note",
-      Blockly.JavaScript.ORDER_NONE);
+    let value_note = valueToCode(block, "note", ORDER_NONE);
     let code = `
 #EXTINC#include <KBSound.h>#END
 #VARIABLEKBSound kbsound;#END
@@ -35,22 +36,11 @@ kbsound.playNotes(${dropdown_instrument},${value_note},${number_tempo});
       return ind + 34; //should minus 2 key start at 0 and note started at 1
     });
     let code = `(std::vector<int>{${keyNote}})`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
-  };
-
-  Blockly.JavaScript["speaker_tts_word"] = function(block) {
-    let text_words = block.getFieldValue("words")
-      .split(" ");
-    text_words = text_words.map(w => "sp" + w.toUpperCase()
-      .trim());
-    let code = `(std::vector<const uint8_t *>{${text_words.join(",")}})`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, ORDER_NONE];
   };
 
   Blockly.JavaScript["speaker_tts_speak"] = function(block) {
-    let value_words = Blockly.JavaScript.valueToCode(block,
-      "words",
-      Blockly.JavaScript.ORDER_NONE);
+    let value_words = valueToCode(block, "words", ORDER_NONE);
     //language=CPP
     let code = `
 #EXTINC#include <tts.h>#END
@@ -63,9 +53,7 @@ kbsound.speak(${value_words});
   };
 
   Blockly.JavaScript["speaker_tts_speak_number"] = function(block) {
-    let value_words = Blockly.JavaScript.valueToCode(block,
-      "number",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    let value_words = valueToCode(block, "number", ORDER_ATOMIC);
     var code = `
 #EXTINC#include <tts.h>#END
 #EXTINC#include <KBSound.h>#END
@@ -87,7 +75,7 @@ kbsound.setVolume(${number_volume});
 
   Blockly.JavaScript["speaker_get_volume"] = function(block) {
     var code = `#EXTINC#include <KBSound.h>#END#VARIABLEKBSound kbsound;#ENDkbsound.getVolume(${value_words});`;
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, ORDER_ATOMIC];
   };
 
 // =============================================================================
@@ -122,12 +110,8 @@ kbsound.setVolume(${number_volume});
   };
 
   Blockly.JavaScript["music_buzzer_frequency"] = function(block) {
-    var value_frequency = Blockly.JavaScript.valueToCode(block,
-      "FREQUENCY",
-      Blockly.JavaScript.ORDER_ATOMIC);
-    var value_dulation = Blockly.JavaScript.valueToCode(block,
-      "DURATION",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_frequency = valueToCode(block, "FREQUENCY", ORDER_ATOMIC);
+    var value_dulation = valueToCode(block, "DURATION", ORDER_ATOMIC);
     var code =
       `
   tone(BUZZER_PIN, ${value_frequency}, ${value_dulation});
@@ -153,10 +137,7 @@ kbsound.setVolume(${number_volume});
   };
 
   Blockly.JavaScript["music_get_volume"] = function(block) {
-    return [
-      "sound.get_volume()",
-      Blockly.JavaScript.ORDER_ATOMIC,
-    ];
+    return ["sound.get_volume()", ORDER_ATOMIC];
   };
 
   Blockly.JavaScript["music_set_tempo"] = function(block) {

@@ -1,9 +1,7 @@
 module.exports = function(Blockly) {
   "use strict";
   const ORDER_ATOMIC = Blockly.JavaScript.ORDER_ATOMIC;
-  const valueToCode = function(a, b) {
-    return Blockly.JavaScript.valueToCode(a, b);
-  };
+  const valueToCode = (a, b) => Blockly.JavaScript.valueToCode(a, b);
 
   Blockly.JavaScript["neopixel_rgb_begin"] = function(block) {
     let [value_pin, value_num] = [
