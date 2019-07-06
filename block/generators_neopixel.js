@@ -1,18 +1,18 @@
-//var hexToRgbA = function(hex) {
-//  var c;
-//  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-//    c = hex.substring(1).split("");
-//    if (c.length == 3) {
-//      c = [c[0], c[0], c[1], c[1], c[2], c[2]];
-//    }
-//    c = "0x" + c.join("");
-//    return [(c >> 16) & 255, (c >> 8) & 255, c & 255];
-//  } else {
-//    console.error(`${hex} is invalid.`);
-//  }
-//};
+var hexToRgbA = function(hex) {
+  var c;
+  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+    c = hex.substring(1).split("");
+    if (c.length == 3) {
+      c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+    }
+    c = "0x" + c.join("");
+    return [(c >> 16) & 255, (c >> 8) & 255, c & 255];
+  } else {
+    console.error(`${hex} is invalid.`);
+  }
+};
 const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
-const { hexToRgbA } = blockly_utils;
+//const { hexToRgbA } = blockly_utils;
 
 module.exports = function(Blockly) {
   "use strict";
@@ -42,7 +42,6 @@ module.exports = function(Blockly) {
       `
   for(int clearPixel = 0; clearPixel < pixels.numPixels(); clearPixel++) {
     pixels.setPixelColor(clearPixel, pixels.Color(0,0,0));	
-    delay(50);
     pixels.show();
   }
   `;
@@ -80,7 +79,6 @@ module.exports = function(Blockly) {
     var code =
       `
   pixels.setPixelColor(${value_num}, pixels.Color(${value_r}, ${value_g}, ${value_b}));
-  delay(50);
   pixels.show();
   `;
     return code;
@@ -93,14 +91,12 @@ module.exports = function(Blockly) {
       console.log(`skipped`);
       return;
     }
-    console.log(`color=`, color);
     let [value_r, value_g, value_b] = color;
 
     var code =
       `
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
-    delay(50);
     pixels.show();
   }
   `;

@@ -14,12 +14,14 @@ ${FUNCTION}
 
 void setup()
 {
-  Wire.begin(21, 22);
     display.init();
 
     display.flipScreenVertically();
-    display.setFont(ArialMT_Plain_10);${SETUP_CODE}
-  ${BLOCKSETUP}
+    display.setFont(ArialMT_Plain_10);
+    /* setup code */
+${SETUP_CODE}
+    /* block setup */
+${BLOCKSETUP}
 }
 void loop()
 {

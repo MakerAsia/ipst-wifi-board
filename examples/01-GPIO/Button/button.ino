@@ -10,7 +10,7 @@ Number LED;
 void setup()
 {
   sw1 = 0;
-  LED = 0;
+  LED = 18;
   pinMode(sw1, INPUT_PULLUP);
   pinMode(LED, OUTPUT);
 }
