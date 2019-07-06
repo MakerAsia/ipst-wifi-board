@@ -1,13 +1,15 @@
 module.exports = function(Blockly) {
   "use strict";
+  const ORDER_ATOMIC = Blockly.JavaScript.ORDER_ATOMIC;
+  const valueToCode = function(a, b) {
+    return Blockly.JavaScript.valueToCode(a, b);
+  };
 
   Blockly.JavaScript["neopixel_rgb_begin"] = function(block) {
-    var value_pin = Blockly.JavaScript.valueToCode(block,
-      "PIN",
-      Blockly.JavaScript.ORDER_ATOMIC);
-    var value_num = Blockly.JavaScript.valueToCode(block,
-      "NUM",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    let [value_pin, value_num] = [
+      valueToCode(block, "PIN", ORDER_ATOMIC),
+      valueToCode(block, "NUM", ORDER_ATOMIC),
+    ];
 
     var code =
       `
@@ -42,9 +44,7 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_setBrightness"] = function(block) {
-    var value_bright = Blockly.JavaScript.valueToCode(block,
-      "BRIGHT",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_bright = valueToCode(block, "BRIGHT", ORDER_ATOMIC);
     var code =
       `
   pixels.setBrightness(${value_bright});
@@ -54,15 +54,10 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_setPixelColor"] = function(block) {
-    var value_num = Blockly.JavaScript.valueToCode(block,
-      "NUM",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_num = valueToCode(block, "NUM", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    var colorArr = color.split(",");
-    var value_r = colorArr[0];
-    var value_g = colorArr[1];
-    var value_b = colorArr[2];
+    let [value_r, value_g, value_b] = color.split(",");
 
     var code =
       `
@@ -76,10 +71,7 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["neopixel_rgb_fillLED"] = function(block) {
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    var colorArr = color.split(",");
-    var value_r = colorArr[0];
-    var value_g = colorArr[1];
-    var value_b = colorArr[2];
+    let [value_r, value_g, value_b] = color.split(",");
 
     var code =
       `
@@ -93,15 +85,10 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_colorWipe"] = function(block) {
-    var value_time = Blockly.JavaScript.valueToCode(block,
-      "TIME",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    var colorArr = color.split(",");
-    var value_r = colorArr[0];
-    var value_g = colorArr[1];
-    var value_b = colorArr[2];
+    let [value_r, value_g, value_b] = color.split(",");
 
     var code =
       `
@@ -115,15 +102,10 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_theaterChase"] = function(block) {
-    var value_time = Blockly.JavaScript.valueToCode(block,
-      "TIME",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    var colorArr = color.split(",");
-    var value_r = colorArr[0];
-    var value_g = colorArr[1];
-    var value_b = colorArr[2];
+    let [value_r, value_g, value_b] = color.split(",");
 
     var code =
       `
@@ -156,9 +138,7 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_rainbow"] = function(block) {
-    var value_time = Blockly.JavaScript.valueToCode(block,
-      "TIME",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var code =
       `
   uint16_t i, j;
@@ -174,10 +154,7 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["neopixel_rgb_rainbowCycle"] = function(block) {
-    var value_time = Blockly.JavaScript.valueToCode(block,
-      "TIME",
-      Blockly.JavaScript.ORDER_ATOMIC);
-
+    var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var code =
       `
   uint16_t k, m;
@@ -197,7 +174,8 @@ module.exports = function(Blockly) {
     var names;
 
     if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-      c = hex.substring(1).split("");
+      c = hex.substring(1)
+        .split("");
       if (c.length == 3) {
         c = [c[0], c[0], c[1], c[1], c[2], c[2]];
       }
