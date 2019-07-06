@@ -16,9 +16,9 @@ module.exports = function(Blockly) {
             ["Piano", "1"],
             ["Harpsichord", "2"],
             ["Organ", "3"],
-            ["Saxophone", "4"],
+            ["Saxophone", "4"]
           ]),
-          "instrument",
+          "instrument"
         );
 
       this.setPreviousStatement(true, null);
@@ -26,7 +26,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("play music");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_music_note"] = {
@@ -45,8 +45,8 @@ module.exports = function(Blockly) {
             "/static/icons/icons8_move_24px.png",
             15,
             15,
-            "move",
-          ),
+            "move"
+          )
         )
         .appendField(f, "notes");
       this.setInputsInline(true);
@@ -54,7 +54,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("create music notes from B0-DS8");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_tts_speak"] = {
@@ -67,7 +67,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("speak");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_tts_speak_number"] = {
@@ -80,7 +80,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("speak number");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_tts_word"] = {
@@ -100,15 +100,15 @@ module.exports = function(Blockly) {
             "/static/icons/icons8_move_24px.png",
             15,
             15,
-            "move",
-          ),
+            "move"
+          )
         )
         .appendField(f, "words");
       this.setOutput(true, "std::vector<const uint8_t *>");
       this.setColour(315);
       this.setTooltip("create text to speech");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_set_volume"] = {
@@ -121,7 +121,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("set speaker volume 0 = silence 10=max");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["speaker_get_volume"] = {
@@ -133,7 +133,7 @@ module.exports = function(Blockly) {
       this.setColour(315);
       this.setTooltip("get speaker volume");
       this.setHelpUrl("");
-    },
+    }
   };
 
   // =============================================================================
@@ -148,7 +148,7 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField("Buzzer begin");
       this.setPreviousStatement(true);
@@ -156,7 +156,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip("Buzzer begin at pin 25");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["music_duration_opt"] = [
@@ -165,46 +165,46 @@ module.exports = function(Blockly) {
         src: "/static/block_icons/notes/whole.svg",
         width: 20,
         height: 20,
-        alt: "Whole",
+        alt: "Whole"
       },
-      "4000",
+      "4000"
     ],
     [
       {
         src: "/static/block_icons/notes/half.svg",
         width: 20,
         height: 20,
-        alt: "Whole",
+        alt: "Whole"
       },
-      "2000",
+      "2000"
     ],
     [
       {
         src: "/static/block_icons/notes/quarter.svg",
         width: 20,
         height: 20,
-        alt: "Whole",
+        alt: "Whole"
       },
-      "1000",
+      "1000"
     ],
     [
       {
         src: "/static/block_icons/notes/eighth.svg",
         width: 20,
         height: 20,
-        alt: "Whole",
+        alt: "Whole"
       },
-      "500",
+      "500"
     ],
     [
       {
         src: "/static/block_icons/notes/sixteenth.svg",
         width: 20,
         height: 20,
-        alt: "Whole",
+        alt: "Whole"
       },
-      "250",
-    ],
+      "250"
+    ]
   ];
 
   Blockly.Blocks["music_buzzer_note"] = {
@@ -214,7 +214,7 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField("Buzzer Note")
         .appendField(
@@ -255,15 +255,15 @@ module.exports = function(Blockly) {
             [Blockly.Msg.MUSIC_NOTE_EB4, "311"],
             [Blockly.Msg.MUSIC_NOTE_D4, "294"],
             [Blockly.Msg.MUSIC_NOTE_CS4, "277"],
-            [Blockly.Msg.MUSIC_NOTE_C4, "262"],
+            [Blockly.Msg.MUSIC_NOTE_C4, "262"]
           ]),
-          "NOTE",
+          "NOTE"
         );
       this.appendDummyInput()
         .appendField(Blockly.Msg.MUSIC_NOTE_DURATION)
         .appendField(
           new Blockly.FieldDropdown(Blockly.Blocks["music_duration_opt"]),
-          "DURATION",
+          "DURATION"
         );
       this.setInputsInline(true);
       this.setPreviousStatement(true);
@@ -271,7 +271,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["music_buzzer_frequency"] = {
@@ -288,7 +288,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["music_rest"] = {
@@ -298,13 +298,13 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField(Blockly.Msg.MUSIC_REST_TITLE)
         .appendField(Blockly.Msg.MUSIC_NOTE_DURATION)
         .appendField(
           new Blockly.FieldDropdown(Blockly.Blocks["music_duration_opt"]),
-          "DURATION",
+          "DURATION"
         );
       this.setInputsInline(true);
       this.setPreviousStatement(true);
@@ -312,7 +312,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip(Blockly.Msg.MUSIC_NOTE_TOOLTIP);
       this.setHelpUrl(Blockly.Msg.MUSIC_NOTE_HELPURL);
-    },
+    }
   };
 
   // https://online-musical-scales.com/c-major-scale
@@ -341,7 +341,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // C Minor
@@ -366,7 +366,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // C# Major
@@ -391,7 +391,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // C# Minor
@@ -415,7 +415,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // D Major
@@ -439,7 +439,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // D Minor
@@ -464,7 +464,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // Eb Major
@@ -489,7 +489,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // Eb Minor
@@ -513,7 +513,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // E Major
@@ -537,7 +537,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // E Minor
@@ -562,7 +562,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // F Major
@@ -587,7 +587,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // F Minor
@@ -612,7 +612,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // F# Major
@@ -636,7 +636,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // F# Minor
@@ -660,7 +660,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // G Major
@@ -685,7 +685,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // G Minor
@@ -710,7 +710,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // G# Major
@@ -735,7 +735,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // G# Minor
@@ -759,7 +759,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // A Major
@@ -783,7 +783,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // A Minor
@@ -808,7 +808,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // Bb Major
@@ -833,7 +833,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // Bb Minor
@@ -858,7 +858,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_F4, "5"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
       [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
-      [Blockly.Msg.MUSIC_NOTE_C4, "0"],
+      [Blockly.Msg.MUSIC_NOTE_C4, "0"]
     ],
     [
       // B Major
@@ -882,7 +882,7 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_EB4, "3"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
     ],
     [
       // B Minor
@@ -906,8 +906,8 @@ module.exports = function(Blockly) {
       [Blockly.Msg.MUSIC_NOTE_FS4, "6"],
       [Blockly.Msg.MUSIC_NOTE_E4, "4"],
       [Blockly.Msg.MUSIC_NOTE_D4, "2"],
-      [Blockly.Msg.MUSIC_NOTE_CS4, "1"],
-    ],
+      [Blockly.Msg.MUSIC_NOTE_CS4, "1"]
+    ]
   ];
 
   Blockly.Blocks["music_scale"] = {
@@ -917,7 +917,7 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField(Blockly.Msg.MUSIC_SCALE_TITLE)
         .appendField(
@@ -946,18 +946,18 @@ module.exports = function(Blockly) {
               [Blockly.Msg.MUSIC_SCALE_BBMAJ, "20"],
               [Blockly.Msg.MUSIC_SCALE_BBMIN, "21"],
               [Blockly.Msg.MUSIC_SCALE_BMAJ, "22"],
-              [Blockly.Msg.MUSIC_SCALE_BMIN, "23"],
+              [Blockly.Msg.MUSIC_SCALE_BMIN, "23"]
             ],
             function(selectedIndex) {
               this.sourceBlock_.inputList[1].fieldRow[1].menuGenerator_ =
                 Blockly.Blocks["music_scale_opt"][selectedIndex];
               this.sourceBlock_.inputList[1].fieldRow[1].setValue(
-                Blockly.Blocks["music_scale_opt"][selectedIndex][0][1],
+                Blockly.Blocks["music_scale_opt"][selectedIndex][0][1]
               );
               return selectedIndex;
-            },
+            }
           ),
-          "SCALE",
+          "SCALE"
         );
 
       //https://developers.google.com/blockly/guides/create-custom-blocks/dropdown-menus#dynamic_menu
@@ -977,14 +977,14 @@ module.exports = function(Blockly) {
             // default
             return Blockly.Blocks["music_scale_opt"][0];
           }),
-          "NOTE",
+          "NOTE"
         );
 
       this.appendDummyInput()
         .appendField(Blockly.Msg.MUSIC_NOTE_DURATION)
         .appendField(
           new Blockly.FieldDropdown(Blockly.Blocks["music_duration_opt"]),
-          "DURATION",
+          "DURATION"
         );
       this.setInputsInline(true);
       this.setPreviousStatement(true);
@@ -992,7 +992,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip(Blockly.Msg.MUSIC_SCALE_TOOLTIP);
       this.setHelpUrl(Blockly.Msg.MUSIC_SCALE_HELPURL);
-    },
+    }
   };
 
   Blockly.Blocks["music_set_volume"] = {
@@ -1003,7 +1003,7 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField(Blockly.Msg.MUSIC_SET_VOLUME_TITLE)
         .appendField(new Blockly.FieldNumber(50, 0, 100, 1), "VALUE")
@@ -1013,7 +1013,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip(Blockly.Msg.MUSIC_SET_VOLUME_TOOLTIP);
       this.setHelpUrl(Blockly.Msg.MUSIC_SET_VOLUME_HELPURL);
-    },
+    }
   };
 
   Blockly.Blocks["music_get_volume"] = {
@@ -1023,7 +1023,7 @@ module.exports = function(Blockly) {
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
             20,
             20,
-            "*"),
+            "*")
         )
         .appendField(Blockly.Msg.MUSIC_GET_VOLUME_TITLE);
       this.setOutput(true, "Number");
@@ -1032,7 +1032,7 @@ module.exports = function(Blockly) {
       this.setColour(music_colour);
       this.setTooltip(Blockly.Msg.MUSIC_GET_VOLUME_TOOLTIP);
       this.setHelpUrl(Blockly.Msg.MUSIC_GET_VOLUME_HELPURL);
-    },
+    }
   };
 
   // =============================================================================

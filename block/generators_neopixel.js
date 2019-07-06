@@ -6,7 +6,7 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["neopixel_rgb_begin"] = function(block) {
     let [value_pin, value_num] = [
       valueToCode(block, "PIN", ORDER_ATOMIC),
-      valueToCode(block, "NUM", ORDER_ATOMIC),
+      valueToCode(block, "NUM", ORDER_ATOMIC)
     ];
 
     var code =

@@ -16,7 +16,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_clear"] = {
@@ -28,7 +28,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_show"] = {
@@ -40,7 +40,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_setBrightness"] = {
@@ -54,7 +54,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_setPixelColor"] = {
@@ -70,7 +70,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_fillLED"] = {
@@ -83,7 +83,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_colorWipe"] = {
@@ -100,7 +100,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_theaterChase"] = {
@@ -117,7 +117,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_rainbow_begin"] = {
@@ -129,7 +129,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_rainbow"] = {
@@ -143,7 +143,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["neopixel_rgb_rainbowCycle"] = {
@@ -157,7 +157,7 @@ module.exports = function(Blockly) {
       this.setColour(65);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
 // ######################################################################

@@ -9,7 +9,9 @@ var createBuffer = function(pixels, width, height) {
   buffer.fill(0x00);// filter pixels to create monochrome image data
   for (var i = 0; i < pixelsLen; i += depth) { // just take the red value
     var pixelVal = pixels[i + 1] = pixels[i + 2] = pixels[i];
-    pixelVal = (pixelVal > threshold) ? 1 : 0;
+    pixelVal = (pixelVal > threshold)
+      ? 1
+      : 0;
     unpackedBuffer[i / depth] = pixelVal; // push to unpacked buffer list
   }
   for (var x = 0; x < width; x++) {

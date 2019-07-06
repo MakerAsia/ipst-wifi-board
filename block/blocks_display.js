@@ -21,7 +21,9 @@ function floyd_steinberg(imageData, w) {
   for (var currentPixel = 0; currentPixel <=
   imageDataLength; currentPixel += 4) {
     // threshold for determining current pixel's conversion to a black or white pixel
-    newPixel = imageData[currentPixel] < 150 ? 0 : 255;
+    newPixel = imageData[currentPixel] < 150
+      ? 0
+      : 255;
     err = Math.floor((imageData[currentPixel] - newPixel) / 23);
     imageData[currentPixel + 0 * 1 - 0] = newPixel;
     imageData[currentPixel + 4 * 1 - 0] += err * 7;
@@ -52,8 +54,8 @@ module.exports = function(Blockly) {
             let myself = this;
             let id = this.sourceBlock_.id.toUpperCase();
             const dialogOptions = {
-              filters: [{name: "Images PNG", extensions: ["png"]}],
-              properties: ["openFile"],
+              filters: [{ name: "Images PNG", extensions: ["png"] }],
+              properties: ["openFile"]
             };
             dialog.showOpenDialog(dialogOptions, imageFileName => {
               console.log(imageFileName);
@@ -63,11 +65,11 @@ module.exports = function(Blockly) {
                 let image = nativeImage.createFromPath(imageFileName);
                 let size = image.getSize();
                 if (size.width > 128) {
-                  image = image.resize({width: 128});
+                  image = image.resize({ width: 128 });
                   size = image.getSize();
                 }
                 if (size.height > 64) {
-                  image = image.resize({height: 64});
+                  image = image.resize({ height: 64 });
                   size = image.getSize();
                 }
                 var buff = image.getBitmap();
@@ -90,7 +92,7 @@ module.exports = function(Blockly) {
       this.setTooltip(
         "create image from PNG file (for best quality result please use size within 128x64 pixel otherwise, it'll resize)");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["i2c128x64_display_image"] = {
@@ -116,7 +118,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("display image to display");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["i2c128x64_display_clear"] = {
@@ -128,7 +130,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("clear display");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["i2c128x64_display_display"] = {
@@ -140,7 +142,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("display everything to screen");
       this.setHelpUrl("");
-    },
+    }
   };
   Blockly.Blocks["oled128x64_display_begin"] = {
     init: function() {
@@ -151,7 +153,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_clear"] = {
@@ -163,7 +165,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_invert"] = {
@@ -176,7 +178,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_print"] = {
@@ -195,7 +197,8 @@ module.exports = function(Blockly) {
         .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
-            ["3X-scale", "3"]]),
+            ["3X-scale", "3"]
+          ]),
           "textSize");
       this.appendDummyInput()
         .appendField("white color")
@@ -206,7 +209,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("display string at x,y");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_println"] = {
@@ -219,7 +222,8 @@ module.exports = function(Blockly) {
         .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
-            ["3X-scale", "3"]]),
+            ["3X-scale", "3"]
+          ]),
           "textSize");
       this.appendDummyInput()
         .appendField("white color")
@@ -230,7 +234,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("display string at x,y");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_display"] = {
@@ -242,7 +246,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("");
       this.setHelpUrl("");
-    },
+    }
   };
 
 // ######################################################################
@@ -293,7 +297,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("draw line from (x0,y0) to (x1,y1)");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_draw_rect"] = {
@@ -319,7 +323,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("draw rectangle to display");
       this.setHelpUrl("");
-    },
+    }
   };
 
   Blockly.Blocks["oled128x64_display_draw_circle"] = {
@@ -342,7 +346,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("draw circle on screen");
       this.setHelpUrl("");
-    },
+    }
   };
 
 // Blockly.Blocks['i2c128x64_display_draw_progress_bar'] = {
@@ -388,7 +392,7 @@ module.exports = function(Blockly) {
       this.setColour(230);
       this.setTooltip("set pixel color");
       this.setHelpUrl("");
-    },
+    }
   };
 
 // Blockly.Blocks['i2c128x64_display_string_width'] = {
