@@ -149,8 +149,8 @@ module.exports = {
                 //         </value>
                 //     </block>`
                 // },
-                //'i2c128x64_display_clear',
-                //'i2c128x64_display_display',
+                // 'i2c128x64_display_clear',
+                // 'i2c128x64_display_display',
                 'oled128x64_display_begin',
                 'oled128x64_display_clear',
                 'oled128x64_display_invert',
@@ -330,8 +330,8 @@ module.exports = {
                 //         </value>
                 //     </block>`
                 // },
-                // 'i2c128x64_display_width',
-                // 'i2c128x64_display_height',
+                // 'oled128x64_display_width',
+                // 'oled128x64_display_height',
                 'basic_string'
             ]
         },        
@@ -356,6 +356,7 @@ module.exports = {
                     </block>`
                 },
                 'neopixel_rgb_clear',
+                // 'neopixel_rgb_show',
                 {
                     xml : 
                     `<block type="neopixel_rgb_setBrightness">
@@ -523,18 +524,18 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
-                },
-                'time_wait_btn_press',
-                'time_sync',
-                'time_get_year',
-                'time_get_month',
-                'time_get_day',
-                'time_get_day_of_week',
-                'time_get_hour',
-                'time_get_minute',
-                'time_get_second',
-                'time_millis',
-                'time_micros'
+                }
+                // 'time_wait_btn_press',
+                // 'time_sync',
+                // 'time_get_year',
+                // 'time_get_month',
+                // 'time_get_day',
+                // 'time_get_day_of_week',
+                // 'time_get_hour',
+                // 'time_get_minute',
+                // 'time_get_second',
+                // 'time_millis',
+                // 'time_micros'
             ]
         },
         {
