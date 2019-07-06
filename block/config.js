@@ -18,7 +18,7 @@ module.exports = {
                                 <field name="NUM">25</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -28,7 +28,7 @@ module.exports = {
                                 <field name="NUM">32</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -43,7 +43,7 @@ module.exports = {
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -53,7 +53,7 @@ module.exports = {
                                 <field name="NUM">36</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -63,7 +63,7 @@ module.exports = {
                                 <field name="NUM">128</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -78,7 +78,7 @@ module.exports = {
                                 <field name="NUM">128</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -88,7 +88,7 @@ module.exports = {
                                 <field name="NUM">36</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         "io_shift_in",
         {
@@ -99,116 +99,83 @@ module.exports = {
                                 <field name="NUM">127</field>
                             </shadow>
                         </value>
-                    </block>`,
-        },
-      ],
+                    </block>`
+        }
+      ]
     },
     {
       name: "Display",
       color: "230",
       icon: "/static/icons/icons8_picture_96px_1.png",
       blocks: [
-        // {
-        //     xml : `<block type="variables_set">
-        //                 <field name="VAR">img1</field>
-        //                 <value name="VALUE">
-        //                     <block type="i2c128x64_create_image" inline="false"></block>
-        //                 </value>
-        //             </block>`
-        // },{
-        //     xml :
-        //     `<block type="i2c128x64_display_image">
-        //         <value name="img">
-        //             <block type="variables_get">
-        //                 <field name="VAR">img1</field>
-        //             </block>
-        //         </value>
-        //         <value name="x">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="x">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="y">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="width">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">10</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="height">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">10</field>
-        //             </shadow>
-        //         </value>
-        //     </block>`
-        // },
-        // 'i2c128x64_display_clear',
-        // 'i2c128x64_display_display',
-        "oled128x64_display_begin",
-        "oled128x64_display_clear",
-        "oled128x64_display_invert",
+        {
+          xml: `<block type="variables_set">
+                                <field name="VAR">img1</field>
+                                <value name="VALUE">
+                                    <block type="i2c128x64_create_image" inline="false"></block>
+                                </value>
+                            </block>`
+        },
         {
           xml:
-            `<block type="oled128x64_display_print">
-                        <value name="TEXT">
-                            <shadow type="basic_string">
-                                <field name="VALUE">Hello world!</field>
-                            </shadow>
+            `<block type="i2c128x64_display_image">
+                        <value name="img">
+                            <block type="variables_get">
+                                <field name="VAR">img1</field>
+                            </block>
                         </value>
-                        <value name="X">
+                        <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">0</field>
                             </shadow>
                         </value>
-                        <value name="Y">
+                        <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">0</field>
                             </shadow>
                         </value>
-                    </block>`,
+                        <value name="y">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="width">
+                            <shadow type="math_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                        <value name="height">
+                            <shadow type="math_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                    </block>`
         },
+        "i2c128x64_display_clear",
+        "i2c128x64_display_display",
         {
           xml:
-            `<block type="oled128x64_display_println">
-                        <value name="TEXT">
+            `<block type="i2c128x64_display_print">
+                        <value name="text">
                             <shadow type="basic_string">
                                 <field name="VALUE">Hello world!</field>
                             </shadow>
                         </value>
-                    </block>`,
+                        <value name="x">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="y">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>`
         },
-        "oled128x64_display_display",
-        // {
-        //     xml :
-        //     `<block type="i2c128x64_display_print">
-        //         <value name="text">
-        //             <shadow type="basic_string">
-        //                 <field name="VALUE">Hello world!</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="x">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="y">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //     </block>`
-        // },
         {
           xml:
-            `<block type="oled128x64_display_draw_line">
+            `<block type="i2c128x64_display_draw_line">
                         <value name="x0">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -229,11 +196,11 @@ module.exports = {
                                 <field name="NUM">50</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
-            `<block type="oled128x64_display_draw_rect">
+            `<block type="i2c128x64_display_draw_rect">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -254,11 +221,11 @@ module.exports = {
                                 <field name="NUM">30</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
-            `<block type="oled128x64_display_draw_circle">
+            `<block type="i2c128x64_display_draw_circle">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -274,41 +241,41 @@ module.exports = {
                                 <field name="NUM">20</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
-        // {
-        //     xml :
-        //     `<block type="i2c128x64_display_draw_progress_bar">
-        //         <value name="x">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">0</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="y">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">32</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="width">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">120</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="height">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">30</field>
-        //             </shadow>
-        //         </value>
-        //         <value name="progress">
-        //             <shadow type="math_number">
-        //                 <field name="NUM">50</field>
-        //             </shadow>
-        //         </value>
-        //     </block>`
-        // },
         {
           xml:
-            `<block type="oled128x64_display_draw_pixel">
+            `<block type="i2c128x64_display_draw_progress_bar">
+                        <value name="x">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="y">
+                            <shadow type="math_number">
+                                <field name="NUM">32</field>
+                            </shadow>
+                        </value>
+                        <value name="width">
+                            <shadow type="math_number">
+                                <field name="NUM">120</field>
+                            </shadow>
+                        </value>
+                        <value name="height">
+                            <shadow type="math_number">
+                                <field name="NUM">30</field>
+                            </shadow>
+                        </value>
+                        <value name="progress">
+                            <shadow type="math_number">
+                                <field name="NUM">50</field>
+                            </shadow>
+                        </value>
+                    </block>`
+        },
+        {
+          xml:
+            `<block type="i2c128x64_display_draw_pixel">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -319,22 +286,22 @@ module.exports = {
                                 <field name="NUM">32</field>
                             </shadow>
                         </value>    
-                    </block>`,
+                    </block>`
         },
-        // {
-        //     xml :
-        //     `<block type="i2c128x64_display_string_width">
-        //         <value name="text">
-        //             <shadow type="basic_string">
-        //                 <field name="VALUE">Hello world!</field>
-        //             </shadow>
-        //         </value>
-        //     </block>`
-        // },
-        // 'oled128x64_display_width',
-        // 'oled128x64_display_height',
-        "basic_string",
-      ],
+        {
+          xml:
+            `<block type="i2c128x64_display_string_width">
+                        <value name="text">
+                            <shadow type="basic_string">
+                                <field name="VALUE">Hello world!</field>
+                            </shadow>
+                        </value>
+                    </block>`
+        },
+        "i2c128x64_display_width",
+        "i2c128x64_display_height",
+        "basic_string"
+      ]
     },
     {
       name: "NeoPixel",
@@ -354,7 +321,7 @@ module.exports = {
                                 <field name="NUM">3</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         "neopixel_rgb_clear",
         // 'neopixel_rgb_show',
@@ -366,7 +333,7 @@ module.exports = {
                                 <field name="NUM">10</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         "neopixel_rgb_fillLED",
         {
@@ -377,7 +344,7 @@ module.exports = {
                                 <field name="NUM">0</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -387,7 +354,7 @@ module.exports = {
                                 <field name="NUM">50</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -397,7 +364,7 @@ module.exports = {
                                 <field name="NUM">50</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         "neopixel_rgb_rainbow_begin",
         {
@@ -408,7 +375,7 @@ module.exports = {
                                 <field name="NUM">20</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -418,67 +385,15 @@ module.exports = {
                                 <field name="NUM">20</field>
                             </shadow>
                         </value>
-                    </block>`,
-        },
-      ],
+                    </block>`
+        }
+      ]
     },
     {
       name: "Buzzer",
       color: "230",
       icon: "/static/icons/icons8_musical_notes_96px.png",
       blocks: [
-        // 'speaker_tts_word',
-        // {
-        //     xml : `<block type="speaker_tts_speak">
-        //                 <value name="words">
-        //                     <block type="speaker_tts_word">
-        //                         <field name="words">HELLO</field>
-        //                     </block>
-        //                 </value>
-        //             </block>`
-        // },
-        // {
-        //     xml : `<block type="speaker_tts_speak_number">
-        //                 <value name="number">
-        //                     <shadow type="math_number">
-        //                         <field name="NUM">1234</field>
-        //                     </shadow>
-        //                 </value>
-        //             </block>`
-        // },
-        // {
-        //     xml : `<block type="variables_set">
-        //                 <field name="VAR">music1</field>
-        //                 <value name="VALUE">
-        //                     <block type="speaker_music_note">
-        //                         <field name="notes">C3,D3,E3</field>
-        //                     </block>
-        //                 </value>
-        //             </block>`
-        // },
-        // {
-        //     xml :
-        //     `<block type="speaker_play_note">
-        //         <value name="note">
-        //             <block type="variables_get">
-        //                 <field name="VAR">music1</field>
-        //             </block>
-        //         </value>
-        //     </block>`
-        // },
-        // 'speaker_music_note',
-        // {
-        //     xml :
-        //     `<block type="speaker_play_note">
-        //         <value name="note">
-        //             <block type="speaker_music_note">
-        //                 <field name="notes">C4,B4,E4</field>
-        //             </block>
-        //         </value>
-        //     </block>`
-        // },
-        // 'speaker_set_volume',
-        // 'speaker_get_volume'
         "music_begin",
         "music_buzzer_note",
         // 'music_buzzer_frequency'
@@ -495,11 +410,11 @@ module.exports = {
                                 <field name="NUM">500</field>
                             </shadow>
                         </value>
-                    </block>`,
-        },
+                    </block>`
+        }
         // 'music_set_volume'
         // 'music_get_volume'
-      ],
+      ]
     },
     {
       name: "Time",
@@ -514,7 +429,7 @@ module.exports = {
                                 <field name="NUM">500</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -524,8 +439,8 @@ module.exports = {
                                 <field name="NUM">1000</field>
                             </shadow>
                         </value>
-                    </block>`,
-        },
+                    </block>`
+        }
         // 'time_wait_btn_press',
         // 'time_sync',
         // 'time_get_year',
@@ -537,13 +452,13 @@ module.exports = {
         // 'time_get_second',
         // 'time_millis',
         // 'time_micros'
-      ],
+      ]
     },
     {
       name: "Variables",
       color: "230",
       icon: "/static/icons/icons8_variable_96px.png",
-      custom: "VARIABLE",
+      custom: "VARIABLE"
     },
     {
       name: "Math",
@@ -564,7 +479,7 @@ module.exports = {
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -574,7 +489,7 @@ module.exports = {
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         "math_variables_get",
         {
@@ -590,7 +505,7 @@ module.exports = {
                                 <field name="NUM">3</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         /*'math_sqrt',*/
         {
@@ -601,7 +516,7 @@ module.exports = {
                                 <field name="NUM">9</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -611,7 +526,7 @@ module.exports = {
                                 <field name="NUM">90</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         {
           xml:
@@ -621,7 +536,7 @@ module.exports = {
                                 <field name="NUM">1.2</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
         /*'math_min',
         'math_max',
@@ -635,9 +550,9 @@ module.exports = {
                                 <field name="NUM">5</field>
                             </shadow>
                         </value>
-                    </block>`,
-        },
-      ],
+                    </block>`
+        }
+      ]
     },
     {
       name: "Logic",
@@ -648,8 +563,8 @@ module.exports = {
         "logic_compare",
         "logic_operation",
         "logic_negate",
-        "logic_boolean",
-      ],
+        "logic_boolean"
+      ]
     },
     {
       name: "Loops",
@@ -676,10 +591,10 @@ module.exports = {
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
-                    </block>`,
+                    </block>`
         },
-        "controls_flow_statements",
-      ],
+        "controls_flow_statements"
+      ]
     },
     {
       name: "Advanced",
@@ -690,7 +605,7 @@ module.exports = {
           type: "category",
           name: "Functions",
           icon: "/static/icons/icons8_module_96px.png",
-          custom: "PROCEDURE",
+          custom: "PROCEDURE"
         },
         /*{
             type : 'category',
@@ -735,7 +650,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             "text_join",
             {
@@ -746,7 +661,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -756,7 +671,7 @@ module.exports = {
                                             <field name="VALUE">Hello world!</field>
                                         </shadow>
                                     </value>                                    
-                                </block>`,
+                                </block>`
             },
             {
               xml:
@@ -766,7 +681,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -776,7 +691,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -786,7 +701,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -796,7 +711,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -806,7 +721,7 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
+                            </block>`
             },
             {
               xml:
@@ -816,11 +731,11 @@ module.exports = {
                                         <field name="VALUE">Hello world!</field>
                                     </shadow>
                                 </value>                                    
-                            </block>`,
-            },
+                            </block>`
+            }
             //'text_compare',
             //'text_parse_int'
-          ],
+          ]
         },
         {
           type: "category",
@@ -864,13 +779,13 @@ module.exports = {
                                             <field name="VALUE">Hello world!</field>
                                         </shadow>
                                     </value>
-                                </block>`,
+                                </block>`
             },
 
             "wifi_get_ip_addr",
             "wifi_get_ap_ip_addr",
-            "wifi_get_arg",
-          ],
+            "wifi_get_arg"
+          ]
         },
         {
           type: "category",
@@ -886,12 +801,12 @@ module.exports = {
                                             <field name="VALUE">Hello world!</field>
                                         </shadow>
                                     </value>
-                                </block>`,
+                                </block>`
             },
             "bt_on_receive",
             "bt_read_data",
-            "bt_read_line",
-          ],
+            "bt_read_line"
+          ]
         },
         {
           type: "category",
@@ -909,15 +824,15 @@ module.exports = {
                                             <field name="VALUE">Hello world!</field>
                                         </shadow>
                                     </value>
-                                </block>`,
+                                </block>`
             },
             "serial_write_newline",
             "serial_read_line",
             "serial_read_until",
-            "basic_string",
-          ],
-        },
-      ],
-    },
-  ],
+            "basic_string"
+          ]
+        }
+      ]
+    }
+  ]
 };
