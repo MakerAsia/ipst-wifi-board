@@ -26,7 +26,9 @@ kbsound.playNotes(${dropdown_instrument},${value_note},${number_tempo});
   };
 
   Blockly.JavaScript["speaker_music_note"] = function(block) {
-    let text_notes = block.getFieldValue("notes").split(",").map(e => e.trim());
+    let text_notes = block.getFieldValue("notes")
+      .split(",")
+      .map(e => e.trim());
     let keyNote = text_notes.map(e => {
       let ind = notes.indexOf(e);
       if (ind === 0) { return -1;}
@@ -37,8 +39,10 @@ kbsound.playNotes(${dropdown_instrument},${value_note},${number_tempo});
   };
 
   Blockly.JavaScript["speaker_tts_word"] = function(block) {
-    let text_words = block.getFieldValue("words").split(" ");
-    text_words = text_words.map(w => "sp" + w.toUpperCase().trim());
+    let text_words = block.getFieldValue("words")
+      .split(" ");
+    text_words = text_words.map(w => "sp" + w.toUpperCase()
+      .trim());
     let code = `(std::vector<const uint8_t *>{${text_words.join(",")}})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
   };

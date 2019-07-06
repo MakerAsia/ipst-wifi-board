@@ -126,7 +126,8 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["speaker_get_volume"] = {
     init: function() {
-      this.appendDummyInput().appendField("get volume");
+      this.appendDummyInput()
+        .appendField("get volume");
       this.setInputsInline(true);
       this.setOutput(true, "Number");
       this.setColour(315);

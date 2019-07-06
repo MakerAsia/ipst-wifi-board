@@ -79,6 +79,7 @@ module.exports = function(Blockly) {
 
 // ######################################################################
   Blockly.JavaScript["oled128x64_display_begin"] = function(block) {
+    //language=HTML format=false
     var code =
       `
   #EXTINC#include <SPI.h> #END

@@ -2,8 +2,11 @@ module.exports = function(Blockly) {
   "use strict";
   Blockly.Blocks["neopixel_rgb_begin"] = {
     init: function() {
-      this.appendDummyInput().appendField("NeoPixel begin");
-      this.appendValueInput("PIN").setCheck("Number").appendField("Pin");
+      this.appendDummyInput()
+        .appendField("NeoPixel begin");
+      this.appendValueInput("PIN")
+        .setCheck("Number")
+        .appendField("Pin");
       this.appendValueInput("NUM")
         .setCheck("Number")
         .appendField("Number of Pixels");
@@ -18,7 +21,8 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["neopixel_rgb_clear"] = {
     init: function() {
-      this.appendDummyInput().appendField("NeoPixel Clear");
+      this.appendDummyInput()
+        .appendField("NeoPixel Clear");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(65);
@@ -29,7 +33,8 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["neopixel_rgb_show"] = {
     init: function() {
-      this.appendDummyInput().appendField("NeoPixel Show");
+      this.appendDummyInput()
+        .appendField("NeoPixel Show");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(65);
@@ -86,7 +91,9 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField("NeoPixel colorWipe")
         .appendField(new Blockly.FieldColour("#FFFFFF"), "COLOR");
-      this.appendValueInput("TIME").setCheck("Number").appendField("Time(ms)");
+      this.appendValueInput("TIME")
+        .setCheck("Number")
+        .appendField("Time(ms)");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -101,7 +108,9 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField("NeoPixel theaterChase")
         .appendField(new Blockly.FieldColour("#FFFFFF"), "COLOR");
-      this.appendValueInput("TIME").setCheck("Number").appendField("Time(ms)");
+      this.appendValueInput("TIME")
+        .setCheck("Number")
+        .appendField("Time(ms)");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -113,7 +122,8 @@ module.exports = function(Blockly) {
 
   Blockly.Blocks["neopixel_rgb_rainbow_begin"] = {
     init: function() {
-      this.appendDummyInput().appendField("NeoPixel rainbow Begin");
+      this.appendDummyInput()
+        .appendField("NeoPixel rainbow Begin");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(65);
