@@ -49,25 +49,23 @@ module.exports = function(Blockly) {
       hexStringArr = hexStringArr.substring(0, hexStringArr.length - 1);
     }
     var code = `(std::vector<uint8_t>{${hexStringArr}})`;
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, ORDER_ATOMIC];
   };
 
   Blockly.JavaScript["i2c128x64_display_image"] = function(block) {
-    var value_img = valueToCode(block,
-      "img",
-      Blockly.JavaScript.ORDER_ATOMIC);
+    var value_img = valueToCode(block, "img", ORDER_ATOMIC);
     var value_x = valueToCode(block,
       "x",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y = valueToCode(block,
       "y",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_width = valueToCode(block,
       "width",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_height = valueToCode(block,
       "height",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var code = `display.drawFastImage(${value_x}, ${value_y}, ${value_width},${value_height},${value_img}.data());\n`;
     return code;
   };
@@ -144,13 +142,13 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_print"] = function(block) {
     var value_text = valueToCode(block,
       "TEXT",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_x = valueToCode(block,
       "X",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y = valueToCode(block,
       "Y",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_textSize = block.getFieldValue("textSize");
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
@@ -169,7 +167,7 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_println"] = function(block) {
     var value_text = valueToCode(block,
       "TEXT",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_textSize = block.getFieldValue("textSize");
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
@@ -194,9 +192,9 @@ module.exports = function(Blockly) {
 // ######################################################################
 
 // Blockly.JavaScript['i2c128x64_display_print'] = function(block) {
-//   var value_text = valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_x = valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_y = valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_text = valueToCode(block, 'text', ORDER_ATOMIC);
+//   var value_x = valueToCode(block, 'x', ORDER_ATOMIC);
+//   var value_y = valueToCode(block, 'y', ORDER_ATOMIC);
 //   var dropdown_font = block.getFieldValue('font');
 //   var code =
 //   `
@@ -209,16 +207,16 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_draw_line"] = function(block) {
     var value_x0 = valueToCode(block,
       "x0",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y0 = valueToCode(block,
       "y0",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_x1 = valueToCode(block,
       "x1",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y1 = valueToCode(block,
       "y1",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
       : "INVERSE";
@@ -234,16 +232,16 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_draw_rect"] = function(block) {
     var value_x = valueToCode(block,
       "x",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y = valueToCode(block,
       "y",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_width = valueToCode(block,
       "width",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_height = valueToCode(block,
       "height",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var checkbox_fill = block.getFieldValue("fill") == "TRUE";
 
     if (checkbox_fill) {
@@ -265,13 +263,13 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_draw_circle"] = function(block) {
     var value_x = valueToCode(block,
       "x",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y = valueToCode(block,
       "y",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_r = valueToCode(block,
       "r",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var checkbox_fill = block.getFieldValue("fill") == "TRUE";
 
     if (checkbox_fill) {
@@ -291,11 +289,11 @@ module.exports = function(Blockly) {
   };
 
 // Blockly.JavaScript['i2c128x64_display_draw_progress_bar'] = function(block) {
-//   var value_x = valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_y = valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_width = valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_height = valueToCode(block, 'height', Blockly.JavaScript.ORDER_ATOMIC);
-//   var value_progress = valueToCode(block, 'progress', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_x = valueToCode(block, 'x', ORDER_ATOMIC);
+//   var value_y = valueToCode(block, 'y', ORDER_ATOMIC);
+//   var value_width = valueToCode(block, 'width', ORDER_ATOMIC);
+//   var value_height = valueToCode(block, 'height', ORDER_ATOMIC);
+//   var value_progress = valueToCode(block, 'progress', ORDER_ATOMIC);
 //   var code = `display.drawProgressBar(${value_x}, ${value_y}, ${value_width}, ${value_height}, ${value_progress});\n`;
 //   return code;
 // };
@@ -303,10 +301,10 @@ module.exports = function(Blockly) {
   Blockly.JavaScript["oled128x64_display_draw_pixel"] = function(block) {
     var value_x = valueToCode(block,
       "x",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var value_y = valueToCode(block,
       "y",
-      Blockly.JavaScript.ORDER_ATOMIC);
+      ORDER_ATOMIC);
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
       : "INVERSE";
@@ -318,19 +316,19 @@ module.exports = function(Blockly) {
   };
 
 // Blockly.JavaScript['i2c128x64_display_string_width'] = function(block) {
-//   var value_text = valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_text = valueToCode(block, 'text', ORDER_ATOMIC);
 //   var code = `display.getStringWidth(${value_text},${value_text.length})`;
-//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+//   return [code, ORDER_ATOMIC];
 // };
 
 // Blockly.JavaScript['oled128x64_display_width'] = function(block) {
 //   var code = 'display.getWidth()';
-//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+//   return [code, ORDER_ATOMIC];
 // };
 
 // Blockly.JavaScript['oled128x64_display_height'] = function(block) {
 //   var code = 'display.getHeight()';
-//   return [code, Blockly.JavaScript.ORDER_ATOMIC];
+//   return [code, ORDER_ATOMIC];
 // };
 
 };
