@@ -54,18 +54,10 @@ module.exports = function(Blockly) {
 
   Blockly.JavaScript["i2c128x64_display_image"] = function(block) {
     var value_img = valueToCode(block, "img", ORDER_ATOMIC);
-    var value_x = valueToCode(block,
-      "x",
-      ORDER_ATOMIC);
-    var value_y = valueToCode(block,
-      "y",
-      ORDER_ATOMIC);
-    var value_width = valueToCode(block,
-      "width",
-      ORDER_ATOMIC);
-    var value_height = valueToCode(block,
-      "height",
-      ORDER_ATOMIC);
+    var value_x = valueToCode(block, "x", ORDER_ATOMIC);
+    var value_y = valueToCode(block, "y", ORDER_ATOMIC);
+    var value_width = valueToCode(block, "width", ORDER_ATOMIC);
+    var value_height = valueToCode(block, "height", ORDER_ATOMIC);
     var code = `display.drawFastImage(${value_x}, ${value_y}, ${value_width},${value_height},${value_img}.data());\n`;
     return code;
   };
@@ -140,15 +132,9 @@ module.exports = function(Blockly) {
   }
 
   Blockly.JavaScript["oled128x64_display_print"] = function(block) {
-    var value_text = valueToCode(block,
-      "TEXT",
-      ORDER_ATOMIC);
-    var value_x = valueToCode(block,
-      "X",
-      ORDER_ATOMIC);
-    var value_y = valueToCode(block,
-      "Y",
-      ORDER_ATOMIC);
+    var value_text = valueToCode(block, "TEXT", ORDER_ATOMIC);
+    var value_x = valueToCode(block, "X", ORDER_ATOMIC);
+    var value_y = valueToCode(block, "Y", ORDER_ATOMIC);
     var value_textSize = block.getFieldValue("textSize");
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
@@ -165,9 +151,7 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["oled128x64_display_println"] = function(block) {
-    var value_text = valueToCode(block,
-      "TEXT",
-      ORDER_ATOMIC);
+    var value_text = valueToCode(block, "TEXT", ORDER_ATOMIC);
     var value_textSize = block.getFieldValue("textSize");
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
@@ -205,18 +189,10 @@ module.exports = function(Blockly) {
 // };
 
   Blockly.JavaScript["oled128x64_display_draw_line"] = function(block) {
-    var value_x0 = valueToCode(block,
-      "x0",
-      ORDER_ATOMIC);
-    var value_y0 = valueToCode(block,
-      "y0",
-      ORDER_ATOMIC);
-    var value_x1 = valueToCode(block,
-      "x1",
-      ORDER_ATOMIC);
-    var value_y1 = valueToCode(block,
-      "y1",
-      ORDER_ATOMIC);
+    var value_x0 = valueToCode(block, "x0", ORDER_ATOMIC);
+    var value_y0 = valueToCode(block, "y0", ORDER_ATOMIC);
+    var value_x1 = valueToCode(block, "x1", ORDER_ATOMIC);
+    var value_y1 = valueToCode(block, "y1", ORDER_ATOMIC);
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
       : "INVERSE";
@@ -230,18 +206,10 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["oled128x64_display_draw_rect"] = function(block) {
-    var value_x = valueToCode(block,
-      "x",
-      ORDER_ATOMIC);
-    var value_y = valueToCode(block,
-      "y",
-      ORDER_ATOMIC);
-    var value_width = valueToCode(block,
-      "width",
-      ORDER_ATOMIC);
-    var value_height = valueToCode(block,
-      "height",
-      ORDER_ATOMIC);
+    var value_x = valueToCode(block, "x", ORDER_ATOMIC);
+    var value_y = valueToCode(block, "y", ORDER_ATOMIC);
+    var value_width = valueToCode(block, "width", ORDER_ATOMIC);
+    var value_height = valueToCode(block, "height", ORDER_ATOMIC);
     var checkbox_fill = block.getFieldValue("fill") == "TRUE";
 
     if (checkbox_fill) {
@@ -261,15 +229,9 @@ module.exports = function(Blockly) {
   };
 
   Blockly.JavaScript["oled128x64_display_draw_circle"] = function(block) {
-    var value_x = valueToCode(block,
-      "x",
-      ORDER_ATOMIC);
-    var value_y = valueToCode(block,
-      "y",
-      ORDER_ATOMIC);
-    var value_r = valueToCode(block,
-      "r",
-      ORDER_ATOMIC);
+    var value_x = valueToCode(block, "x", ORDER_ATOMIC);
+    var value_y = valueToCode(block, "y", ORDER_ATOMIC);
+    var value_r = valueToCode(block, "r", ORDER_ATOMIC);
     var checkbox_fill = block.getFieldValue("fill") == "TRUE";
 
     if (checkbox_fill) {
@@ -299,12 +261,8 @@ module.exports = function(Blockly) {
 // };
 
   Blockly.JavaScript["oled128x64_display_draw_pixel"] = function(block) {
-    var value_x = valueToCode(block,
-      "x",
-      ORDER_ATOMIC);
-    var value_y = valueToCode(block,
-      "y",
-      ORDER_ATOMIC);
+    var value_x = valueToCode(block, "x", ORDER_ATOMIC);
+    var value_y = valueToCode(block, "y", ORDER_ATOMIC);
     var checkbox_color = (block.getFieldValue("color") == "TRUE")
       ? "WHITE"
       : "INVERSE";
