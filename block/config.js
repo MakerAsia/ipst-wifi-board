@@ -11,7 +11,7 @@ module.exports = {
       blocks: [
         {
           xml:
-              `<block type="io_setpin">
+            `<block type="io_setpin">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">25</field>
@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_digital_read">
+            `<block type="io_digital_read">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">32</field>
@@ -31,7 +31,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_digital_write">
+            `<block type="io_digital_write">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">33</field>
@@ -46,7 +46,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_analog_read">
+            `<block type="io_analog_read">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -56,7 +56,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_analog_write">
+            `<block type="io_analog_write">
                         <value name="value">
                             <shadow type="math_number">
                                 <field name="NUM">128</field>
@@ -66,7 +66,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_pwm_write">
+            `<block type="io_pwm_write">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -81,7 +81,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="io_pulse_in">
+            `<block type="io_pulse_in">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -92,7 +92,7 @@ module.exports = {
         "io_shift_in",
         {
           xml:
-              `<block type="io_shift_out">
+            `<block type="io_shift_out">
                         <value name="data">
                             <shadow type="math_number">
                                 <field name="NUM">127</field>
@@ -156,7 +156,7 @@ module.exports = {
         "oled128x64_display_invert",
         {
           xml:
-              `<block type="oled128x64_display_print">
+            `<block type="oled128x64_display_print">
                         <value name="TEXT">
                             <shadow type="basic_string">
                                 <field name="VALUE">Hello world!</field>
@@ -176,7 +176,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="oled128x64_display_println">
+            `<block type="oled128x64_display_println">
                         <value name="TEXT">
                             <shadow type="basic_string">
                                 <field name="VALUE">Hello world!</field>
@@ -207,7 +207,7 @@ module.exports = {
         // },
         {
           xml:
-              `<block type="oled128x64_display_draw_line">
+            `<block type="oled128x64_display_draw_line">
                         <value name="x0">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -232,7 +232,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="oled128x64_display_draw_rect">
+            `<block type="oled128x64_display_draw_rect">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -257,7 +257,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="oled128x64_display_draw_circle">
+            `<block type="oled128x64_display_draw_circle">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -307,7 +307,7 @@ module.exports = {
         // },
         {
           xml:
-              `<block type="oled128x64_display_draw_pixel">
+            `<block type="oled128x64_display_draw_pixel">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -342,7 +342,7 @@ module.exports = {
       blocks: [
         {
           xml:
-              `<block type="neopixel_rgb_begin">
+            `<block type="neopixel_rgb_begin">
                         <value name="PIN">
                             <shadow type="math_number">
                                 <field name="NUM">12</field>
@@ -359,7 +359,7 @@ module.exports = {
         // 'neopixel_rgb_show',
         {
           xml:
-              `<block type="neopixel_rgb_setBrightness">
+            `<block type="neopixel_rgb_setBrightness">
                         <value name="BRIGHT">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -370,7 +370,7 @@ module.exports = {
         "neopixel_rgb_fillLED",
         {
           xml:
-              `<block type="neopixel_rgb_setPixelColor">
+            `<block type="neopixel_rgb_setPixelColor">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">0</field>
@@ -380,7 +380,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="neopixel_rgb_colorWipe">
+            `<block type="neopixel_rgb_colorWipe">
                         <value name="TIME">
                             <shadow type="math_number">
                                 <field name="NUM">50</field>
@@ -390,7 +390,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="neopixel_rgb_theaterChase">
+            `<block type="neopixel_rgb_theaterChase">
                         <value name="TIME">
                             <shadow type="math_number">
                                 <field name="NUM">50</field>
@@ -401,7 +401,7 @@ module.exports = {
         "neopixel_rgb_rainbow_begin",
         {
           xml:
-              `<block type="neopixel_rgb_rainbow">
+            `<block type="neopixel_rgb_rainbow">
                         <value name="TIME">
                             <shadow type="math_number">
                                 <field name="NUM">20</field>
@@ -411,7 +411,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="neopixel_rgb_rainbowCycle">
+            `<block type="neopixel_rgb_rainbowCycle">
                         <value name="TIME">
                             <shadow type="math_number">
                                 <field name="NUM">20</field>
@@ -483,7 +483,7 @@ module.exports = {
         // 'music_buzzer_frequency'
         {
           xml:
-              `<block type="music_buzzer_frequency">
+            `<block type="music_buzzer_frequency">
                         <value name="FREQUENCY">    
                             <shadow type="math_number">
                                 <field name="NUM">262</field>
@@ -507,7 +507,7 @@ module.exports = {
       blocks: [
         {
           xml:
-              `<block type="time_delay">
+            `<block type="time_delay">
                         <value name="delay">
                             <shadow type="math_number">
                                 <field name="NUM">500</field>
@@ -517,7 +517,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="time_delay_microsec">
+            `<block type="time_delay_microsec">
                         <value name="delay">
                             <shadow type="math_number">
                                 <field name="NUM">1000</field>
@@ -552,7 +552,7 @@ module.exports = {
         "math_number",
         {
           xml:
-              `<block type="math_arithmetic">
+            `<block type="math_arithmetic">
                         <value name="A">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -567,7 +567,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="math_variables_set">
+            `<block type="math_variables_set">
                         <value name="VALUE">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -578,7 +578,7 @@ module.exports = {
         "math_variables_get",
         {
           xml:
-              `<block type="math_pow">
+            `<block type="math_pow">
                         <value name="NUM1">
                             <shadow type="math_number">
                                 <field name="NUM">2</field>
@@ -594,7 +594,7 @@ module.exports = {
         /*'math_sqrt',*/
         {
           xml:
-              `<block type="math_single">
+            `<block type="math_single">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">9</field>
@@ -604,7 +604,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="math_trig">
+            `<block type="math_trig">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">90</field>
@@ -614,7 +614,7 @@ module.exports = {
         },
         {
           xml:
-              `<block type="math_round">
+            `<block type="math_round">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">1.2</field>
@@ -628,7 +628,7 @@ module.exports = {
         "math_random_int",
         {
           xml:
-              `<block type="math_number_property">
+            `<block type="math_number_property">
                         <value name="NUMBER_TO_CHECK">
                             <shadow type="math_number">
                                 <field name="NUM">5</field>
@@ -659,7 +659,7 @@ module.exports = {
         "controls_whileUntil",
         {
           xml:
-              `<block type="controls_for">
+            `<block type="controls_for">
                         <value name="FROM">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -728,7 +728,7 @@ module.exports = {
             "basic_string",
             {
               xml:
-                  `<block type="text_length">
+                `<block type="text_length">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -739,7 +739,7 @@ module.exports = {
             "text_join",
             {
               xml:
-                  `<block type="text_append">
+                `<block type="text_append">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -749,7 +749,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_isEmpty">
+                `<block type="text_isEmpty">
                                     <value name="VALUE">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -759,7 +759,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_indexOf">
+                `<block type="text_indexOf">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -769,7 +769,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_charAt">
+                `<block type="text_charAt">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -779,7 +779,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_getSubstring">
+                `<block type="text_getSubstring">
                                 <value name="STRING">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -789,7 +789,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_changeCase">
+                `<block type="text_changeCase">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -799,7 +799,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_trim">
+                `<block type="text_trim">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -809,7 +809,7 @@ module.exports = {
             },
             {
               xml:
-                  `<block type="text_replace">
+                `<block type="text_replace">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -857,7 +857,7 @@ module.exports = {
             "wifi_server_on",
             {
               xml:
-                  `<block type="wifi_server_send">
+                `<block type="wifi_server_send">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -879,7 +879,7 @@ module.exports = {
             "bt_start",
             {
               xml:
-                  `<block type="bt_send_string">
+                `<block type="bt_send_string">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -902,7 +902,7 @@ module.exports = {
             "serial_available",
             {
               xml:
-                  `<block type="serial_write_data">
+                `<block type="serial_write_data">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>

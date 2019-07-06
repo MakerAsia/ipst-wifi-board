@@ -14,8 +14,8 @@ module.exports = function(Blockly) {
     let number_tempo = block.getFieldValue("tempo");
     let dropdown_instrument = block.getFieldValue("instrument");
     let value_note = Blockly.JavaScript.valueToCode(block,
-        "note",
-        Blockly.JavaScript.ORDER_NONE);
+      "note",
+      Blockly.JavaScript.ORDER_NONE);
     let code = `
 #EXTINC#include <KBSound.h>#END
 #VARIABLEKBSound kbsound;#END
@@ -45,8 +45,8 @@ kbsound.playNotes(${dropdown_instrument},${value_note},${number_tempo});
 
   Blockly.JavaScript["speaker_tts_speak"] = function(block) {
     let value_words = Blockly.JavaScript.valueToCode(block,
-        "words",
-        Blockly.JavaScript.ORDER_NONE);
+      "words",
+      Blockly.JavaScript.ORDER_NONE);
     //language=CPP
     let code = `
 #EXTINC#include <tts.h>#END
@@ -60,8 +60,8 @@ kbsound.speak(${value_words});
 
   Blockly.JavaScript["speaker_tts_speak_number"] = function(block) {
     let value_words = Blockly.JavaScript.valueToCode(block,
-        "number",
-        Blockly.JavaScript.ORDER_ATOMIC);
+      "number",
+      Blockly.JavaScript.ORDER_ATOMIC);
     var code = `
 #EXTINC#include <tts.h>#END
 #EXTINC#include <KBSound.h>#END
@@ -91,7 +91,7 @@ kbsound.setVolume(${number_volume});
 // =============================================================================
   Blockly.JavaScript["music_begin"] = function(block) {
     var code =
-        `
+      `
   #VARIABLE#define BUZZER_PIN          25 #END
   #VARIABLE#define SOUND_PWM_CHANNEL   0 #END
   #VARIABLE#define SOUND_RESOLUTION    8 #END
@@ -111,7 +111,7 @@ kbsound.setVolume(${number_volume});
     var value_tone = block.getFieldValue("NOTE");
     var value_dulation = block.getFieldValue("DURATION");
     var code =
-        `
+      `
   tone(BUZZER_PIN, ${value_tone}, ${value_dulation});
   `;
     return code;
@@ -119,13 +119,13 @@ kbsound.setVolume(${number_volume});
 
   Blockly.JavaScript["music_buzzer_frequency"] = function(block) {
     var value_frequency = Blockly.JavaScript.valueToCode(block,
-        "FREQUENCY",
-        Blockly.JavaScript.ORDER_ATOMIC);
+      "FREQUENCY",
+      Blockly.JavaScript.ORDER_ATOMIC);
     var value_dulation = Blockly.JavaScript.valueToCode(block,
-        "DURATION",
-        Blockly.JavaScript.ORDER_ATOMIC);
+      "DURATION",
+      Blockly.JavaScript.ORDER_ATOMIC);
     var code =
-        `
+      `
   tone(BUZZER_PIN, ${value_frequency}, ${value_dulation});
   `;
     return code;
@@ -137,9 +137,9 @@ kbsound.setVolume(${number_volume});
 
   Blockly.JavaScript["music_scale"] = function(block) {
     var ret =
-        "sound.note(" + block.getFieldValue("NOTE") + ");\n" +
-        "sound.rest(" + block.getFieldValue("DURATION") + ");\n" +
-        "sound.off();\n";
+      "sound.note(" + block.getFieldValue("NOTE") + ");\n" +
+      "sound.rest(" + block.getFieldValue("DURATION") + ");\n" +
+      "sound.off();\n";
 
     return ret;
   };

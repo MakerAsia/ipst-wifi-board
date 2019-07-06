@@ -5,8 +5,8 @@ const dialog = app.dialog;
 function floyd_steinberg(imageData, w) {
   var imageDataLength = imageData.length;
   var lumR = [],
-      lumG = [],
-      lumB = [];
+    lumG = [],
+    lumB = [];
   var newPixel, err;
   for (var i = 0; i < 256; i++) {
     lumR[i] = i * 0.299;
@@ -16,7 +16,7 @@ function floyd_steinberg(imageData, w) {
   // Greyscale luminance (sets r pixels to luminance of rgb)
   for (var i = 0; i <= imageDataLength; i += 4) {
     imageData[i] = Math.floor(lumR[imageData[i]] + lumG[imageData[i + 1]] +
-        lumB[imageData[i + 2]]);
+      lumB[imageData[i + 2]]);
   }
   for (var currentPixel = 0; currentPixel <=
   imageDataLength; currentPixel += 4) {
@@ -42,50 +42,50 @@ module.exports = function(Blockly) {
     init: function() {
       this.appendDummyInput().appendField("create image from PNG file");
       this.appendDummyInput().appendField(new Blockly.FieldImage(
-          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABACAIAAABdtOgoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ/SURBVHhe7ZbbdQIxDES3LgraeqiGZiiG2JLWHhmbx08Gkrk/kWU9GR/IdhNUJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACZFwW47Nu2nc7XOP4ZbK9tv8SRgASQAP+bhQDX86k+jYo9jxDgbA+mAG/GH5GDEs393dtLQLNRZL9qTnwHs/oeHpUh18xjfHzvkBAxF/NUirf16DnQts+KsxTiwos7PXZgKkDesxrRweZw20dCGxZe+aHw9bzH33obC9p92A4WhfRF/VTszj+UrkBCxKT4sVfxm+s+8a492pO9GjMB+p6N5OqHHOk96/Ghv18U0pzTSWfdVvVTte5GMwMJKSYVyt2CPAymQbW2iUW3EzIRYMg10gztkGaGi5X/MB3rAOfGMGiqalWW9dPoEJX8CFykoikBxh/m7cUH65W9nKUA0TDAGeCQ3DD1yn/QW+TIORaznU5tu2X91Kk3mUwQwAWEDwmtG3r7CO4NjqFe2cuYfQWlUeA3YFIc/fPx0F+s8PV7s45VF7QVI/tJX7fd9CAMScCFm5OavZl5PcKrD04EJnnI9Ef4GKAC/Y4u6dAjC9Bv7gdvj/VZG5OhIw3XXPVtxeIfGsvx4GVhu3AzWqQE2LePuu/FHJ1Ga/N8r8JCgE8DPoNPI422VHrJdwjgb+mdvX6N/JG/P+g3COA7fubnX8lfNW+O+SVfQX8XCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACV2+0HImEfdtax+UEAAAAASUVORK5CYII=",
-          128,
-          64,
-          "click to upload",
-          function(e) {
-            let myself = this;
-            let id = this.sourceBlock_.id.toUpperCase();
-            const dialogOptions = {
-              filters: [{name: "Images PNG", extensions: ["png"]}],
-              properties: ["openFile"],
-            };
-            dialog.showOpenDialog(dialogOptions, imageFileName => {
-              console.log(imageFileName);
-              if (imageFileName != undefined) {
-                imageFileName = imageFileName[0];
-                //--- resize image ---//
-                let image = nativeImage.createFromPath(imageFileName);
-                let size = image.getSize();
-                if (size.width > 128) {
-                  image = image.resize({width: 128});
-                  size = image.getSize();
-                }
-                if (size.height > 64) {
-                  image = image.resize({height: 64});
-                  size = image.getSize();
-                }
-                var buff = image.getBitmap();
-                //---- dithering image ----//
-                floyd_steinberg(buff, size.width);
-                //---- display image ----//
-                myself.sourceBlock_.inputList[2].fieldRow[0].setValue(`image size ${size.width} x ${size.height}`);
-                myself.sourceBlock_.inputList[2].fieldRow[0].init();
-                myself.setValue(image.toDataURL());
-                myself.init();
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABACAIAAABdtOgoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ/SURBVHhe7ZbbdQIxDES3LgraeqiGZiiG2JLWHhmbx08Gkrk/kWU9GR/IdhNUJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACZFwW47Nu2nc7XOP4ZbK9tv8SRgASQAP+bhQDX86k+jYo9jxDgbA+mAG/GH5GDEs393dtLQLNRZL9qTnwHs/oeHpUh18xjfHzvkBAxF/NUirf16DnQts+KsxTiwos7PXZgKkDesxrRweZw20dCGxZe+aHw9bzH33obC9p92A4WhfRF/VTszj+UrkBCxKT4sVfxm+s+8a492pO9GjMB+p6N5OqHHOk96/Ghv18U0pzTSWfdVvVTte5GMwMJKSYVyt2CPAymQbW2iUW3EzIRYMg10gztkGaGi5X/MB3rAOfGMGiqalWW9dPoEJX8CFykoikBxh/m7cUH65W9nKUA0TDAGeCQ3DD1yn/QW+TIORaznU5tu2X91Kk3mUwQwAWEDwmtG3r7CO4NjqFe2cuYfQWlUeA3YFIc/fPx0F+s8PV7s45VF7QVI/tJX7fd9CAMScCFm5OavZl5PcKrD04EJnnI9Ef4GKAC/Y4u6dAjC9Bv7gdvj/VZG5OhIw3XXPVtxeIfGsvx4GVhu3AzWqQE2LePuu/FHJ1Ga/N8r8JCgE8DPoNPI422VHrJdwjgb+mdvX6N/JG/P+g3COA7fubnX8lfNW+O+SVfQX8XCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJAAZCUBGApCRAGQkABkJQEYCkJEAZCQAGQlARgKQkQBkJACV2+0HImEfdtax+UEAAAAASUVORK5CYII=",
+        128,
+        64,
+        "click to upload",
+        function(e) {
+          let myself = this;
+          let id = this.sourceBlock_.id.toUpperCase();
+          const dialogOptions = {
+            filters: [{name: "Images PNG", extensions: ["png"]}],
+            properties: ["openFile"],
+          };
+          dialog.showOpenDialog(dialogOptions, imageFileName => {
+            console.log(imageFileName);
+            if (imageFileName != undefined) {
+              imageFileName = imageFileName[0];
+              //--- resize image ---//
+              let image = nativeImage.createFromPath(imageFileName);
+              let size = image.getSize();
+              if (size.width > 128) {
+                image = image.resize({width: 128});
+                size = image.getSize();
               }
-            });
-          },
-          true));
+              if (size.height > 64) {
+                image = image.resize({height: 64});
+                size = image.getSize();
+              }
+              var buff = image.getBitmap();
+              //---- dithering image ----//
+              floyd_steinberg(buff, size.width);
+              //---- display image ----//
+              myself.sourceBlock_.inputList[2].fieldRow[0].setValue(`image size ${size.width} x ${size.height}`);
+              myself.sourceBlock_.inputList[2].fieldRow[0].init();
+              myself.setValue(image.toDataURL());
+              myself.init();
+            }
+          });
+        },
+        true));
       this.appendDummyInput().appendField("image size 128 x 64");
 
       this.setOutput(true, "std::vector<uint8_t>");
       this.setColour(230);
       this.setTooltip(
-          "create image from PNG file (for best quality result please use size within 128x64 pixel otherwise, it'll resize)");
+        "create image from PNG file (for best quality result please use size within 128x64 pixel otherwise, it'll resize)");
       this.setHelpUrl("");
     },
   };
@@ -93,8 +93,8 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_image"] = {
     init: function() {
       this.appendValueInput("img")
-      .setCheck("std::vector<uint8_t>")
-      .appendField("draw image");
+        .setCheck("std::vector<uint8_t>")
+        .appendField("draw image");
       this.appendValueInput("x").setCheck("Number").appendField(" at (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
       this.appendValueInput("width").setCheck("Number").appendField(") width");
@@ -154,8 +154,8 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_invert"] = {
     init: function() {
       this.appendDummyInput()
-      .appendField("OLED invert Display")
-      .appendField(new Blockly.FieldCheckbox("FALSE"), "inv");
+        .appendField("OLED invert Display")
+        .appendField(new Blockly.FieldCheckbox("FALSE"), "inv");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(230);
@@ -167,20 +167,20 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_print"] = {
     init: function() {
       this.appendValueInput("TEXT")
-      .setCheck("String")
-      .appendField("OLED print");
+        .setCheck("String")
+        .appendField("OLED print");
       this.appendValueInput("X").setCheck("Number").appendField("at (X");
       this.appendValueInput("Y").setCheck("Number").appendField(", Y");
       this.appendDummyInput()
-      .appendField(") font")
-      .appendField(new Blockly.FieldDropdown([
+        .appendField(") font")
+        .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
             ["3X-scale", "3"]]),
           "textSize");
       this.appendDummyInput()
-      .appendField("white color")
-      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+        .appendField("white color")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -193,18 +193,18 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_println"] = {
     init: function() {
       this.appendValueInput("TEXT")
-      .setCheck("String")
-      .appendField("OLED print new line");
+        .setCheck("String")
+        .appendField("OLED print new line");
       this.appendDummyInput()
-      .appendField("font")
-      .appendField(new Blockly.FieldDropdown([
+        .appendField("font")
+        .appendField(new Blockly.FieldDropdown([
             ["1:1-scale", "1"],
             ["2X-scale", "2"],
             ["3X-scale", "3"]]),
           "textSize");
       this.appendDummyInput()
-      .appendField("white color")
-      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+        .appendField("white color")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -253,14 +253,14 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_draw_line"] = {
     init: function() {
       this.appendValueInput("x0")
-      .setCheck("Number")
-      .appendField("OLED draw line from (X");
+        .setCheck("Number")
+        .appendField("OLED draw line from (X");
       this.appendValueInput("y0").setCheck("Number").appendField(",Y");
       this.appendValueInput("x1").setCheck("Number").appendField(")  to  (X");
       this.appendValueInput("y1").setCheck("Number").appendField(",Y");
       this.appendDummyInput()
-      .appendField(")  white color")
-      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+        .appendField(")  white color")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -273,14 +273,14 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_draw_rect"] = {
     init: function() {
       this.appendValueInput("x")
-      .setCheck("Number")
-      .appendField("OLED draw rectangle at (X");
+        .setCheck("Number")
+        .appendField("OLED draw rectangle at (X");
       this.appendValueInput("y").setCheck("Number").appendField(", Y");
       this.appendValueInput("width").setCheck("Number").appendField(")  width");
       this.appendValueInput("height").setCheck("Number").appendField(" height");
       this.appendDummyInput()
-      .appendField(" fill ")
-      .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
+        .appendField(" fill ")
+        .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -293,13 +293,13 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_draw_circle"] = {
     init: function() {
       this.appendValueInput("x")
-      .setCheck("Number")
-      .appendField("OLED draw circle at (X");
+        .setCheck("Number")
+        .appendField("OLED draw circle at (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
       this.appendValueInput("r").setCheck("Number").appendField(")  radius");
       this.appendDummyInput()
-      .appendField(" fill")
-      .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
+        .appendField(" fill")
+        .appendField(new Blockly.FieldCheckbox("FALSE"), "fill");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -338,12 +338,12 @@ module.exports = function(Blockly) {
   Blockly.Blocks["oled128x64_display_draw_pixel"] = {
     init: function() {
       this.appendValueInput("x")
-      .setCheck("Number")
-      .appendField("OLED set pixel (X");
+        .setCheck("Number")
+        .appendField("OLED set pixel (X");
       this.appendValueInput("y").setCheck("Number").appendField(",Y");
       this.appendDummyInput()
-      .appendField(")  white color")
-      .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
+        .appendField(")  white color")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "color");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
