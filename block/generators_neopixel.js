@@ -1,8 +1,11 @@
+const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
+
 module.exports = function(Blockly) {
   "use strict";
   const ORDER_ATOMIC = Blockly.JavaScript.ORDER_ATOMIC;
   const valueToCode = (a, b) => Blockly.JavaScript.valueToCode(a, b);
 
+  console.log(`blockly_utils`, blockly_utils.hello());
   Blockly.JavaScript["neopixel_rgb_begin"] = function(block) {
     let [value_pin, value_num] = [
       valueToCode(block, "PIN", ORDER_ATOMIC),
