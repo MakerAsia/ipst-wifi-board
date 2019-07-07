@@ -183,16 +183,16 @@ module.exports = {
                         </value>    
                     </block>`
     },
-    {
-      xml:
-        `<block type="i2c128x64_display_string_width">
-                        <value name="text">
-                            <shadow type="basic_string">
-                                <field name="VALUE">Hello world!</field>
-                            </shadow>
-                        </value>
-                    </block>`
-    },
+    // {
+    //   xml:
+    //     `<block type="i2c128x64_display_string_width">
+    //                     <value name="text">
+    //                         <shadow type="basic_string">
+    //                             <field name="VALUE">Hello world!</field>
+    //                         </shadow>
+    //                     </value>
+    //                 </block>`
+    // },
     "i2c128x64_display_width",
     "i2c128x64_display_height",
     "basic_string"

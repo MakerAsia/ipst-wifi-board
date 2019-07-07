@@ -5,6 +5,7 @@
 #include <WebServer.h>
 #include "SSD1306Wire.h"
 #include "SH1106.h"
+
 SH1106 display(0x3c, 21, 22);
 ${EXTINC}
 
@@ -23,6 +24,7 @@ ${SETUP_CODE}
     /* block setup */
 ${BLOCKSETUP}
 }
+
 void loop()
 {
   ${LOOP_CODE}
