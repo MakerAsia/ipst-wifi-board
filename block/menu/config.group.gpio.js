@@ -13,6 +13,8 @@ module.exports = {
                         </value>
                     </block>`
     },
+    "adc_pin_dummy_input",
+    "io_pin_dummy_input",
     {
       xml:
         `<block type="io_digital_read">
@@ -28,7 +30,7 @@ module.exports = {
         `<block type="io_digital_write">
                         <value name="pin">
                             <shadow type="math_number">
-                                <field name="NUM">33</field>
+                                <field name="NUM">18</field>
                             </shadow>
                         </value>
                         <value name="value">
@@ -93,6 +95,17 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
+    },
+    {
+      xml:
+        `<block type="time_delay">
+                        <value name="delay">
+                            <shadow type="math_number">
+                                <field name="NUM">500</field>
+                            </shadow>
+                        </value>
+                    </block>`
     }
+
   ]
 };

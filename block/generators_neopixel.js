@@ -42,8 +42,8 @@ module.exports = function(Blockly) {
       `
   for(int clearPixel = 0; clearPixel < pixels.numPixels(); clearPixel++) {
     pixels.setPixelColor(clearPixel, pixels.Color(0,0,0));	
-    pixels.show();
   }
+  pixels.show();
   `;
     return code;
   };
@@ -97,8 +97,8 @@ module.exports = function(Blockly) {
       `
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
-    pixels.show();
   }
+  pixels.show();
   `;
     return code;
   };
@@ -107,7 +107,7 @@ module.exports = function(Blockly) {
     var value_time = valueToCode(block, "TIME", ORDER_ATOMIC);
     var value_color = block.getFieldValue("COLOR");
     var color = hexToRgbA(value_color);
-    let [value_r, value_g, value_b] = color.split(",");
+    let [value_r, value_g, value_b] = color;
 
     var code =
       `

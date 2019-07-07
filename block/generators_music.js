@@ -84,17 +84,21 @@ kbsound.setVolume(${number_volume});
   Blockly.JavaScript["music_begin"] = function(block) {
     var code =
       `
-  #VARIABLE#define BUZZER_PIN          25 #END
-  #VARIABLE#define SOUND_PWM_CHANNEL   0 #END
-  #VARIABLE#define SOUND_RESOLUTION    8 #END
-  #VARIABLE#define SOUND_ON            (1<<(SOUND_RESOLUTION-1)) #END
-  #VARIABLE#define SOUND_OFF           0 #END
-  #VARIABLEvoid tone(int pin, int frequency, int duration){ #END
-  #VARIABLEledcSetup(0, frequency, 8); #END
-  #VARIABLEledcAttachPin(pin, 0); #END
-  #VARIABLEledcWrite(0, SOUND_ON); #END
-  #VARIABLEdelay(duration); #END
-  #VARIABLEledcWrite(0, SOUND_OFF);} #END
+#VARIABLE
+#define BUZZER_PIN          25 
+#define SOUND_PWM_CHANNEL   0 
+#define SOUND_RESOLUTION    8
+#define SOUND_ON            (1<<(SOUND_RESOLUTION-1))
+#define SOUND_OFF           0 
+
+void tone(int pin, int frequency, int duration) {
+  ledcSetup(0, frequency, 8);
+  ledcAttachPin(pin, 0);
+  ledcWrite(0, SOUND_ON);
+  delay(duration);
+  ledcWrite(0, SOUND_OFF);
+}
+#END
   `;
     return code;
   };
@@ -102,20 +106,14 @@ kbsound.setVolume(${number_volume});
   Blockly.JavaScript["music_buzzer_note"] = function(block) {
     var value_tone = block.getFieldValue("NOTE");
     var value_dulation = block.getFieldValue("DURATION");
-    var code =
-      `
-  tone(BUZZER_PIN, ${value_tone}, ${value_dulation});
-  `;
+    var code = ` tone(BUZZER_PIN, ${value_tone}, ${value_dulation}); `;
     return code;
   };
 
   Blockly.JavaScript["music_buzzer_frequency"] = function(block) {
     var value_frequency = valueToCode(block, "FREQUENCY", ORDER_ATOMIC);
     var value_dulation = valueToCode(block, "DURATION", ORDER_ATOMIC);
-    var code =
-      `
-  tone(BUZZER_PIN, ${value_frequency}, ${value_dulation});
-  `;
+    var code = ` tone(BUZZER_PIN, ${value_frequency}, ${value_dulation}); `;
     return code;
   };
 

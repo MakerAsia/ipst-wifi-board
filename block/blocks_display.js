@@ -1,6 +1,7 @@
 const app = require("electron").remote;
 const nativeImage = require("electron").nativeImage;
 const dialog = app.dialog;
+
 const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
 const { floyd_steinberg } = blockly_utils;
 
