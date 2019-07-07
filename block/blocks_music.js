@@ -167,7 +167,7 @@ module.exports = function(Blockly) {
         height: 20,
         alt: "Whole"
       },
-      "4000"
+      "100"
     ],
     [
       {
