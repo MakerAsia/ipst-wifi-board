@@ -5,7 +5,7 @@ module.exports = {
   blocks: [
     "music_begin",
     "music_buzzer_note",
-    "music_duration_opt",
+    // "music_duration_opt",
     // 'music_buzzer_frequency'
     {
       xml:
