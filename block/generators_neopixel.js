@@ -97,6 +97,7 @@ module.exports = function(Blockly) {
       `
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
+    delay(50);
   }
   pixels.show();
   `;
@@ -113,8 +114,8 @@ module.exports = function(Blockly) {
       `
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(${value_r}, ${value_g}, ${value_b}));
-    pixels.show();
     delay(${value_time});
+    pixels.show();
   }
   `;
     return code;
