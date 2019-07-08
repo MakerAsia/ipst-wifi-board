@@ -6,7 +6,7 @@
 #include "SSD1306Wire.h"
 #include "SH1106.h"
 
-SH1106 display(0x3c, 21, 22);
+SSD1306Wire display(0x3c, 21, 22);
 ${EXTINC}
 
 ${VARIABLE}
