@@ -11,6 +11,7 @@ var hexToRgbA = function(hex) {
     console.error(`${hex} is invalid.`);
   }
 };
+
 const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
 //const { hexToRgbA } = blockly_utils;
 
