@@ -7,6 +7,6 @@ module.exports = {
   website: "",
   email: "makerasia@gmail.com",
   git: "https://github.com/MakerAsia/ipst-wifi-board/",
-  image: "/static/display.JPG",
+  image: "/static/display.jpg",
   version: "1.0.0",
 };
