@@ -12,7 +12,7 @@ var hexToRgbA = function(hex) {
   }
 };
 
-const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
+//const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
 //const { hexToRgbA } = blockly_utils;
 
 module.exports = function(Blockly) {
