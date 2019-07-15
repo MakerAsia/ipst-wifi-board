@@ -3,6 +3,7 @@ let neopixel = require("./menu/config.group.neopixel");
 let buzzer = require("./menu/config.group.buzzer");
 let common = require("./menu/config.group.common");
 let gpio = require("./menu/config.group.gpio");
+let sdcard = require("./menu/config.group.sdcard");
 
 module.exports = {
   //language=HTML format=false
@@ -15,6 +16,7 @@ module.exports = {
     display,
     neopixel,
     buzzer,
+    sdcard,
     ...common
   ]
 };

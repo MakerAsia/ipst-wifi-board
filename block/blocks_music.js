@@ -15,8 +15,8 @@ module.exports = function(Blockly) {
         .appendField(
           new Blockly.FieldImage(
             "/static/icons/icons8_move_24px.png",
-            15,
-            15,
+            30,
+            30,
             "move"
           )
         )
@@ -64,8 +64,8 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField(
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
-            20,
-            20,
+            30,
+            30,
             "*")
         )
         .appendField("Buzzer begin");
@@ -130,8 +130,8 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField(
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
-            20,
-            20,
+            30,
+            30,
             "*")
         )
         .appendField("Buzzer Note")
@@ -195,6 +195,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["music_buzzer_frequency"] = {
     init: function() {
       this.appendValueInput("FREQUENCY")
+        .appendField(new Blockly.FieldImage("/static/block_icons/buzzer.png",30,30,"*"))
         .setCheck("Number")
         .appendField("Buzzer Frequency");
       this.appendValueInput("DURATION")
@@ -214,8 +215,8 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField(
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
-            20,
-            20,
+            30,
+            30,
             "*")
         )
         .appendField(Blockly.Msg.MUSIC_REST_TITLE)
@@ -919,8 +920,8 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField(
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
-            20,
-            20,
+            30,
+            30,
             "*")
         )
         .appendField(Blockly.Msg.MUSIC_SET_VOLUME_TITLE)
@@ -939,8 +940,8 @@ module.exports = function(Blockly) {
       this.appendDummyInput()
         .appendField(
           new Blockly.FieldImage("/static/block_icons/buzzer.png",
-            20,
-            20,
+            30,
+            30,
             "*")
         )
         .appendField(Blockly.Msg.MUSIC_GET_VOLUME_TITLE);
