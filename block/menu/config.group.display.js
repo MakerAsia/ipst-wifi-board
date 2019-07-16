@@ -1,7 +1,7 @@
 module.exports = {
   name: "Display",
   color: "230",
-  icon: "/static/icons/icons8_picture_96px_1.png",
+  icon: "/static/icons/display.png",
   blocks: [
     {
       xml: `<block type="variables_set">

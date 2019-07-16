@@ -22,6 +22,12 @@ static const uint8_t MOSI  = 23;
 static const uint8_t MISO  = 19;
 static const uint8_t SCK   = 18;
 
+static const uint8_t SD_SS    = 13;
+static const uint8_t SD_MOSI  = 15;
+static const uint8_t SD_MISO  = 2;
+static const uint8_t SD_SCK   = 14;
+
+
 static const uint8_t A0 = 36;
 static const uint8_t A3 = 39;
 static const uint8_t A4 = 32;
