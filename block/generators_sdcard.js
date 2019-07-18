@@ -23,13 +23,14 @@ module.exports = function(Blockly) {
       `
   #EXTINC#include <mySD.h>#END
   #VARIABLEFile sdcard;#END
-  #SETUP
+  
     if (!SD.begin(SD_SS, SD_MOSI, SD_MISO, SD_SCK)) {
       Serial.println("initialization failed!");
+      delay(1);
       return;
     }
     Serial.println("initialization done...");
-  #END
+  \n
   `;
     return code;
   };
