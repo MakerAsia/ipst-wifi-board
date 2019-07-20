@@ -376,6 +376,22 @@ module.exports = [
           "serial_read_until",
           "basic_string"
         ]
+      },
+      {
+        type : 'category',
+        name : 'MQTT',
+        icon : '/static/icons/SVG/13.svg',
+        blocks : 
+        [
+          'mqtt_block',
+          'mqtt_connect_block',
+          'mqtt_subscribe_block',
+          'mqtt_callback_block',
+          'topic_block',
+          'payload_block',
+          'mqtt_publish_block',
+          'mqtt_loop_block'
+        ]
       }
     ]
   }
