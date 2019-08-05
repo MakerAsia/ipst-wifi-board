@@ -4,7 +4,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["sdcard_begin"] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("https://image.flaticon.com/icons/svg/1137/1137754.svg",20,20,"*"))
+        .appendField(new Blockly.FieldImage("/static/icons/1137754.svg",20,20,"*"))
         .appendField("SD card begin");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
@@ -18,7 +18,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks['sdcard_write_txt'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldImage("https://image.flaticon.com/icons/svg/1137/1137707.svg", 20, 20, "*"))
+          .appendField(new Blockly.FieldImage("/static/icons/1137707.svg", 20, 20, "*"))
           .appendField("SD card .txt file name")
           .appendField(new Blockly.FieldVariable("file1"), "FILENAME");
       this.appendValueInput("DATA")
@@ -36,7 +36,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks['sdcard_write_csv'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldImage("https://image.flaticon.com/icons/svg/1137/1137756.svg", 20, 20, "*"))
+          .appendField(new Blockly.FieldImage("/static/icons/1137756.svg", 20, 20, "*"))
           .appendField("SD card .csv file name")
           .appendField(new Blockly.FieldVariable("file1"), "FILENAME");
       this.appendValueInput("DATA1")
