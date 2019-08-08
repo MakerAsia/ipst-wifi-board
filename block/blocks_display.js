@@ -5,6 +5,8 @@ const dialog = app.dialog;
 // const { blockly_utils } = require("electron").remote.getGlobal("blockly_utils");
 // const { floyd_steinberg } = blockly_utils;
 
+const dirIcon = Vue.prototype.$global.board.board_info.dir;
+
 let floyd_steinberg = function(imageData, w) {
   var imageDataLength = imageData.length;
   var lumR = [],
@@ -101,7 +103,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_image"] = {
     init: function() {
       this.appendValueInput("img")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("std::vector<uint8_t>")
         .appendField("draw image");
       this.appendValueInput("x")
@@ -128,7 +130,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_clear"] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .appendField("clear display");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -141,7 +143,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_display"] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .appendField("display");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -154,7 +156,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_print"] = {
     init: function() {
       this.appendValueInput("text")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("String")
         .appendField("display text");
       this.appendValueInput("x")
@@ -185,7 +187,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_draw_line"] = {
     init: function() {
       this.appendValueInput("x0")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("Number")
         .appendField("draw line from (X");
       this.appendValueInput("y0")
@@ -211,7 +213,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_draw_rect"] = {
     init: function() {
       this.appendValueInput("x")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("Number")
         .appendField("draw rectangle at (X");
       this.appendValueInput("y")
@@ -238,7 +240,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_draw_circle"] = {
     init: function() {
       this.appendValueInput("x")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("Number")
         .appendField("draw circle at (X");
       this.appendValueInput("y")
@@ -262,7 +264,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_draw_progress_bar"] = {
     init: function() {
       this.appendValueInput("x")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("Number")
         .appendField("draw progress bar at (X");
       this.appendValueInput("y")
@@ -289,7 +291,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_draw_pixel"] = {
     init: function() {
       this.appendValueInput("x")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("Number")
         .appendField("set pixel (X");
       this.appendValueInput("y")
@@ -310,7 +312,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_string_width"] = {
     init: function() {
       this.appendValueInput("text")
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .setCheck("String")
         .appendField("get pixel width of string");
       this.setInputsInline(true);
@@ -324,7 +326,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_width"] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .appendField("get screen width");
       this.setOutput(true, "Number");
       this.setColour(230);
@@ -336,7 +338,7 @@ module.exports = function(Blockly) {
   Blockly.Blocks["i2c128x64_display_height"] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("/static/icons/1163412.svg", 20, 20, "*"))
+        .appendField(new Blockly.FieldImage(`file:///${dirIcon}/static/icons/1163412.png`, 20, 20, "*"))
         .appendField("get screen height");
       this.setOutput(true, "Number");
       this.setColour(230);
