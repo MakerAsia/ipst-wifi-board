@@ -1,5 +1,6 @@
 module.exports = {
   name: "NeoPixel",
+  index: 20,
   color: "65",
   icon: "/static/icons/icons8_workflow_128px.png",
   blocks: [

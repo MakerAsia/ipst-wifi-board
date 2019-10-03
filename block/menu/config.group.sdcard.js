@@ -1,5 +1,6 @@
 module.exports = {
   name: "SD Card",
+  index: 40,
   color: "65",
   icon: "/static/icons/icons8_stack_96px.png",
   blocks: [
