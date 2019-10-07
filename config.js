@@ -1,6 +1,6 @@
 module.exports = {
   name: "ipst-wifi",
-  vender: "Innovative Experiment Co., Ltd.",
+  vendor: "INEX",
   platform: "arduino-esp32",
   title: "IPST-WiFi",
   description: "IPST-WiFi Development Boards",
